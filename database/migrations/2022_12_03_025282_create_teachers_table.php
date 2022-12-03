@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('category_id');
             $table->string('name')->nullable();
             $table->string('address')->nullable();
             $table->string('photo_profile')->nullable();
