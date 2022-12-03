@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('teacher_id')->constained('teachers');
+            $table->string('name');
+            $table->string('file_path');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
