@@ -17,10 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('grade_id')->constrained('grades');
-            $table->string('name')->nullable();
-            $table->string('phone_number')->nullable();
-            $table->string('address')->nullable();
-            $table->string('photo_profile')->nullable();
             $table->timestamps();
         });
     }

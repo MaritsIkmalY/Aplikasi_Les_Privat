@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Grade;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -24,6 +26,26 @@ class DatabaseSeeder extends Seeder
 
         Role::create([
             'name' => 'Teacher'
+        ]);
+
+        Grade::create([
+            'name' => 'SD'
+        ]);
+
+        Grade::create([
+            'name' => 'SMP'
+        ]);
+
+        Grade::create([
+            'name' => 'SMA/IPA'
+        ]);
+
+        Grade::create([
+            'name' => 'SMA/IPS'
+        ]);
+
+        Grade::create([
+            'name' => 'SMA/Bahasa'
         ]);
 
         User::create([

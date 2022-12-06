@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('role_id')->constrained('roles')->default(1);
             $table->string('username');
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('profile_photo_path')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

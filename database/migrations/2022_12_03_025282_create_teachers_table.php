@@ -17,9 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('category_id');
-            $table->string('name')->nullable();
-            $table->string('address')->nullable();
-            $table->string('photo_profile')->nullable();
             $table->string('fee')->nullable();
             $table->time('schedule')->nullable();
             $table->timestamps();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Grade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -17,8 +18,12 @@ class ProfileController extends Controller
      */
     public function edit(Request $request)
     {
+        if(Auth::user()->role_id == 1) {
+            $grade = Grade::all();
+        }
         return view('profile.edit', [
             'user' => $request->user(),
+            'grade' => $grade,
         ]);
     }
 
