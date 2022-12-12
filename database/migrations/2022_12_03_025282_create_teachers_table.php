@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->constrained('categories');
             $table->string('fee')->nullable();
-            $table->time('schedule')->nullable();
+            $table->string('schedule')->nullable();
             $table->timestamps();
         });
     }

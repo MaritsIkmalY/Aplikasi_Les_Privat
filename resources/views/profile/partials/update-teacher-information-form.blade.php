@@ -10,15 +10,34 @@
     </header>
 
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="/profile/teacher/{{ Auth::user()->id }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
         <div>
-            <x-input-label for="username" :value="__('Username')" />
-            <x-text-input id="username" name="username" type="text" class="mt-1 block w-full" :value="old('name', $user->username)" required
-                autofocus autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('username')" />
+            <x-input-label for="category" :value="__('Category')" />
+            <select class="select w-full mt-1" id="category" name="category_id" type="text" required autofocus>
+                <option disabled selected>Select yout Category</option>
+                @foreach ($categories as $category)
+                    <option @if ($teacher->category_id == $category->id) selected @endif value="{{ $category->id }}">
+                        {{ $category->name }}</option>
+                @endforeach
+            </select>
+            <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
+        </div>
+
+        <div>
+            <x-input-label for="fee" :value="__('Fee')" />
+            <x-text-input id="fee" name="fee" type="text" class="mt-1 block w-full" :value="old('fee', $teacher->fee)"
+                required autofocus autocomplete="fee" />
+            <x-input-error class="mt-2" :messages="$errors->get('fee')" />
+        </div>
+
+        <div>
+            <x-input-label for="schedule" :value="__('Schedule')" />
+            <x-text-input id="schedule" name="schedule" type="text" class="mt-1 block w-full" :value="old('time', $teacher->schedule)"
+                required autofocus autocomplete="schedule" />
+            <x-input-error class="mt-2" :messages="$errors->get('schedule')" />
         </div>
 
         <div class="flex items-center gap-4">
