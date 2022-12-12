@@ -6,10 +6,13 @@ use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Category;
 use App\Models\Grade;
 use App\Models\Student;
+use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\Teacher;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProfileController extends Controller
 {
@@ -55,6 +58,10 @@ class ProfileController extends Controller
         $request->user()->fill($request->validated());
 
         if (!is_null($request->profile_photo_path)) {
+            if (!is_null(Auth::user()->profile_photo_path)) {
+                $oldFile = User::where('id', Auth::user()->id)->first();
+                Storage::disk('public')->delete($oldFile->profile_photo_path);
+            }
             $filename = $request->file('profile_photo_path')->getClientOriginalName();
             $request->user()->profile_photo_path = $request->file('profile_photo_path')->storeAs('profile-photos', $filename, 'public');
         }
