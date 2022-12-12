@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Category;
 use App\Models\Grade;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Teacher;
 
 class ProfileController extends Controller
 {
@@ -19,24 +21,25 @@ class ProfileController extends Controller
      */
     public function edit(Request $request)
     {
-        $view = view('profile.edit', [
-            'user' => $request->user(),
-        ]);
-
-        //student
-        if(Auth::user()->role_id == 1) {
+        if (Auth::user()->role_id == 1) {
             $grade = Grade::all();
-            $student = Student::where('user_id', Auth::user()->id)->first();
-            $view['student'] = $student;
-            $view['grade'] = $grade;
-            return $view;
-        }
-        //teacher
-        elseif(Auth::user()->role_id == 2) {
-            return $view;
+            return view('profile.edit', [
+                'user' => $request->user(),
+                'grade' => $grade,
+            ]);
         }
 
-        
+        if (Auth::user()->role_id == 2) {
+            $category = Category::all();
+            $user_id = Auth::user()->id;
+            $teacher = Teacher::where('user_id', $user_id)->first();
+            // dd($teacher);
+            return view('profile.edit', [
+                'user' => $request->user(),
+                'categories' => $category,
+                'teacher' => $teacher,
+            ]);
+        }
     }
 
     /**

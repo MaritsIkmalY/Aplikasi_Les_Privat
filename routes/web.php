@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileStudentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileTeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -27,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::resource('/profile/student', ProfileStudentController::class)->only('update');
+    Route::resource('/profile/teacher', ProfileTeacherController::class)->only('update');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

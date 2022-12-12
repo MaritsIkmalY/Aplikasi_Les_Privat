@@ -4,9 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Category;
 use App\Models\Grade;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Teacher;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -48,19 +50,54 @@ class DatabaseSeeder extends Seeder
             'name' => 'SMA/Bahasa'
         ]);
 
+        Role::create([
+            'name' => 'Student'
+        ]);
+
+        Role::create([
+            'name' => 'Teacher'
+        ]);
+
+        Category::create([
+            'name' => 'SD'
+        ]);
+
+        Category::create([
+            'name' => 'SMP'
+        ]);
+
+        Category::create([
+            'name' => 'SMA/IPA'
+        ]);
+
+        Category::create([
+            'name' => 'SMA/IPS'
+        ]);
+
+        Category::create([
+            'name' => 'SMA/Bahasa'
+        ]);
+
         User::create([
             'username' => 'Student',
             'role_id' => '1',
             'email' => 'student@example.com',
-            'password' => Hash::make('password'), 
+            'password' => Hash::make('password'),
         ]);
 
         User::create([
             'username' => 'Teacher',
             'role_id' => '2',
             'email' => 'teacher@example.com',
-            'password' => Hash::make('password'), 
+            'password' => Hash::make('password'),
         ]);
 
+        Teacher::create([
+            'id' => '1',
+            'user_id' => '2',
+            'category_id' => '3',
+            'fee' => '500000',
+            'schedule' => null,
+        ]);
     }
 }
