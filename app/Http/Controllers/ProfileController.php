@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Grade;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -18,13 +19,24 @@ class ProfileController extends Controller
      */
     public function edit(Request $request)
     {
+        $view = view('profile.edit', [
+            'user' => $request->user(),
+        ]);
+
+        //student
         if(Auth::user()->role_id == 1) {
             $grade = Grade::all();
+            $student = Student::where('user_id', Auth::user()->id)->first();
+            $view['student'] = $student;
+            $view['grade'] = $grade;
+            return $view;
         }
-        return view('profile.edit', [
-            'user' => $request->user(),
-            'grade' => $grade,
-        ]);
+        //teacher
+        elseif(Auth::user()->role_id == 2) {
+            return $view;
+        }
+
+        
     }
 
     /**

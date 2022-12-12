@@ -10,7 +10,7 @@
     </header>
 
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="/profile/student/{{ Auth::user()->id }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
@@ -19,18 +19,18 @@
             <select class="select w-full mt-1" id="grade" name="grade" type="text" required autofocus>
                 <option disabled selected>Select yout grade</option>
                 @foreach ($grade as $g)
-                    <option :value="{{ $g->id }}">{{ $g->name }}</option>
+                    <option @if($student->grade_id == $g->id) selected @endif value="{{ $g->id }}">{{ $g->name }}</option>
                 @endforeach
             </select>
             <x-input-error class="mt-2" :messages="$errors->get('grade')" />
         </div>
 
-        <div>
+        {{-- <div>
             <x-input-label for="school" :value="__('School')" />
             <x-text-input id="school" name="school" type="text" class="mt-1 block w-full" :value="old('name', $user->school)"
                 required autofocus autocomplete="school" />
             <x-input-error class="mt-2" :messages="$errors->get('school')" />
-        </div>
+        </div> --}}
 
 
         <div class="flex items-center gap-4">
