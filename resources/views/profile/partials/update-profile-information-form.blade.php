@@ -14,12 +14,15 @@
     </form>
 
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6 flex-1">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6 flex-1"
+        enctype="multipart/form-data">
         @csrf
         @method('patch')
         <div>
-            <p class="mb-3 text-center">Profile Photo</p>
+            <p class="mb-3">Profile Photo</p>
             <img class="mask mask-circle" src="https://placeimg.com/160/160/arch" />
+            <input type="file" name="profile_photo_path" id="photo">
+            <x-input-error class="mt-2" :messages="$errors->get('profile_photo_path')" />
         </div>
 
         <div>

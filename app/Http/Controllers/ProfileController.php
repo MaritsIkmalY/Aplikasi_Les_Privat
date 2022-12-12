@@ -54,6 +54,10 @@ class ProfileController extends Controller
     {
         $request->user()->fill($request->validated());
 
+        $filename = $request->file('profile_photo_path')->getClientOriginalName().Auth::user()->id;
+
+        $request->user()->profile_photo_path = $request->file('profile_photo_path')->storeAs('profile-photos', $filename, 'public');
+
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
