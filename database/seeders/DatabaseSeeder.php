@@ -9,6 +9,7 @@ use App\Models\Grade;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Teacher;
+use App\Models\Student;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -98,6 +99,12 @@ class DatabaseSeeder extends Seeder
             'category_id' => '3',
             'fee' => '500000',
             'schedule' => null,
+        ]);
+
+        Student::create([
+            'id' => '1',
+            'user_id' => '1',
+            'grade_id' => null,
         ]);
     }
 }

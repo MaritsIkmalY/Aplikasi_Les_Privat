@@ -14,14 +14,17 @@
     </form>
 
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6 flex-1"
-        enctype="multipart/form-data">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6 flex-1" enctype="multipart/form-data">
         @csrf
         @method('patch')
         <div>
-            <p class="mb-3">Profile Photo</p>
-            <img class="mask mask-circle" src="https://placeimg.com/160/160/arch" />
-            <input type="file" name="profile_photo_path" id="photo">
+            @if (is_null($user->profile_photo_path))
+                <img class="mask mask-circle w-52" src="/storage/default.jpg" />
+            @else
+                <img class="mask mask-circle w-52" src="/storage/{{ $user->profile_photo_path }}" />
+            @endif
+            <x-input-label for="photo" :value="__('Photo Profile')" />
+            <input type="file" name="profile_photo_path" id="photo" class="mt-1 block w-full">
             <x-input-error class="mt-2" :messages="$errors->get('profile_photo_path')" />
         </div>
 
