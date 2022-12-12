@@ -19,7 +19,8 @@
             <select class="select w-full mt-1" id="grade" name="grade" type="text" required autofocus>
                 <option disabled selected>Select yout grade</option>
                 @foreach ($grade as $g)
-                    <option @if($student->grade_id == $g->id) selected @endif value="{{ $g->id }}">{{ $g->name }}</option>
+                    <option @if ($student->grade_id == $g->id) selected @endif value="{{ $g->id }}">
+                        {{ $g->name }}</option>
                 @endforeach
             </select>
             <x-input-error class="mt-2" :messages="$errors->get('grade')" />
