@@ -23,9 +23,11 @@ class ProfileController extends Controller
     {
         if (Auth::user()->role_id == 1) {
             $grade = Grade::all();
+            $student = Student::where('user_id', Auth::user()->id)->first();
             return view('profile.edit', [
                 'user' => $request->user(),
                 'grade' => $grade,
+                'student' => $student,
             ]);
         }
 
