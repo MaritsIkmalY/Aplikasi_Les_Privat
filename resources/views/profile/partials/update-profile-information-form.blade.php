@@ -24,7 +24,7 @@
                 <img class="mask mask-circle w-52" src="/storage/{{ $user->profile_photo_path }}" />
             @endif
             <x-input-label for="photo" :value="__('Photo Profile')" />
-            <input type="file" name="profile_photo_path" id="photo" class="mt-1 block w-full">
+            <input class="file-input file-input-bordered w-full" type="file" name="profile_photo_path" id="photo" class="mt-1 block w-full">
             <x-input-error class="mt-2" :messages="$errors->get('profile_photo_path')" />
         </div>
 
