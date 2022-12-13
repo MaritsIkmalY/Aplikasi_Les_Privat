@@ -22,7 +22,7 @@
                 <div class="flex flex-col gap-4 mt-5">
                     <div class="flex justify-between items-center">
                         <h1 class="text-2xl">Biodata</h1>
-                        <button class="btn btn-success">Edit Biodata</button>
+                        <a class="btn btn-success" href="{{ route('profile.edit') }}">Edit Biodata</a>
                     </div>
                     <p>Nama : {{ Auth::user()->name }}</p>
                     <p>Email : {{ Auth::user()->email }}</p>
@@ -32,8 +32,8 @@
 
                 <div class="flex flex-col gap-4 mt-5">
                     <div class="flex justify-between items-center">
-                        <h1 class="text-2xl">Biodata</h1>
-                        <button class="btn btn-success">Edit Biodata</button>
+                        <h1 class="text-2xl">Pendidikan</h1>
+                        <button class="btn btn-success">Edit Pendidikan</button>
                     </div>
                     @foreach ($teacher->education as $education)
                         <p>{{ $education->name }} - {{ $education->description }}</p>
