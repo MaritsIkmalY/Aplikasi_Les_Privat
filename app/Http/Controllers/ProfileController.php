@@ -68,9 +68,10 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request)
     {
         $request->user()->fill($request->validated());
+        $profile = User::where('id', Auth::user()->id)->first('profile_photo_path');
 
         if (!is_null($request->profile_photo_path)) {
-            if (!is_null(Auth::user()->profile_photo_path)) {
+            if (!is_null($profile->photo_path)) {
                 $oldFile = User::where('id', Auth::user()->id)->first();
                 Storage::disk('public')->delete($oldFile->profile_photo_path);
             }
