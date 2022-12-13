@@ -15,6 +15,8 @@ class Teacher extends Model
         'id',
     ];
 
+    protected $with = ['education', 'certificate'];
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
@@ -23,5 +25,13 @@ class Teacher extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function education() {
+        return $this->hasMany(Education::class);
+    }
+
+    public function certificate() {
+        return $this->hasMany(Certificate::class);
     }
 }

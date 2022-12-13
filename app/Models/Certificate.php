@@ -9,4 +9,8 @@ class Certificate extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
+    public function teacher() {
+        return $this->belongsTo(Teacher::class, 'teacher_id');
+    }
 }

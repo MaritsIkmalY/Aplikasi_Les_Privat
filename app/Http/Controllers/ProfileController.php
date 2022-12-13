@@ -16,6 +16,18 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
+    public function index()
+    {
+        $view = view('profile.profile-index');
+        if (Auth::user()->role_id == 1) {
+            $view['grade'] = Grade::all();
+            $view['student'] = Student::where('user_id', Auth::user()->id)->first();
+        } else if (Auth::user()->role_id == 2) {
+            $view['category'] = Category::all();
+            $view['teacher'] = Teacher::where('user_id', Auth::user()->id)->first();
+        }
+        return $view;
+    }
     /**
      * Display the user's profile form.
      *
