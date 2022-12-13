@@ -22,13 +22,7 @@
                 <div class="flex flex-col gap-4 mt-5">
                     <div class="flex justify-between items-center">
                         <h1 class="text-2xl">Biodata</h1>
-<<<<<<< HEAD
                         <a class="btn btn-success" href="{{ route('profile.edit') }}">Edit Biodata</a>
-=======
-                        <a class="btn btn-success" href="{{ route('profile.edit') }}">
-                            Edit Biodata
-                        </a>
->>>>>>> ba9a7db18d9583d4bb0834ee1833641157da155d
                     </div>
                     <p>Nama : {{ Auth::user()->name }}</p>
                     <p>Email : {{ Auth::user()->email }}</p>
@@ -36,11 +30,12 @@
                     <p>Phone : {{ Auth::user()->phone }}</p>
                 </div>
 
-<<<<<<< HEAD
+                <!--pendidikan-->
+                @if(Auth::user()->role_id == 2)
                 <div class="flex flex-col gap-4 mt-5">
                     <div class="flex justify-between items-center">
                         <h1 class="text-2xl">Pendidikan</h1>
-                        <button class="btn btn-success">Edit Pendidikan</button>
+                        <a href="{{ route('education.index') }}" class="btn btn-success">Edit Pendidikan</a>
                     </div>
                     @foreach ($teacher->education as $education)
                         <p>{{ $education->name }} - {{ $education->description }}</p>
@@ -48,12 +43,11 @@
                 </div>
 
 
-                <!--pendidikan-->
                 <!--sertif-->
                 <div class="flex flex-col gap-5">
                     <div class="flex justify-between items-center">
                         <h1 class="text-2xl">Sertifikat</h1>
-                        <button class="btn btn-success">Edit Sertifikat</button>
+                        <a href="{{ route('certificate.index') }}" class="btn btn-success">Edit Sertifikat</a>
                     </div>
                     <div class="flex gap-4 items-stretch">
                         @foreach ($teacher->certificate as $certificate)
@@ -66,42 +60,7 @@
                                     <p>{{ $certificate->description }}</p>
                                 </div>
                             </div>
-=======
-                @if (Auth::user()->role_id == 2)
-                    {{-- Pendidikan --}}
-                    <div class="flex flex-col gap-4 mt-5">
-                        <div class="flex justify-between items-center">
-                            <h1 class="text-2xl">Pendidikan</h1>
-                            <a href={{ route('education.index') }} class="btn btn-success">Edit Pendidikan</a>
-                        </div>
-                        @foreach ($teacher->education as $education)
-                            <p>{{ $education->name }} - {{ $education->description }}</p>
->>>>>>> ba9a7db18d9583d4bb0834ee1833641157da155d
                         @endforeach
-                    </div>
-
-
-                    <!--pendidikan-->
-                    <!--sertif-->
-                    <div class="flex flex-col gap-5">
-                        <div class="flex justify-between items-center">
-                            <h1 class="text-2xl">Sertifikat</h1>
-                            <a href="{{ route('certificate.index') }}" class="btn btn-success">Edit Sertifikat</a>
-                        </div>
-                        <div class="flex gap-4 items-stretch">
-                            @foreach ($teacher->certificate as $certificate)
-                                <div class="card w-96 bg-base-100 shadow-xl">
-                                    <figure><img src="/storage/{{ $certificate->file_path }}" alt="Shoes" />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h2 class="card-title">
-                                            {{ $certificate->name }}
-                                        </h2>
-                                        <p>{{ $certificate->description }}</p>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
                     </div>
                 @endif
             </div>
