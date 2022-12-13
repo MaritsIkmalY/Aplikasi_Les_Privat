@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium">
-            {{ __('Profile Information') }}
+            {{ __('Informasi Profil') }}
         </h2>
 
         <p class="mt-1 text-sm">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __('Perbarui profilmu') }}
         </p>
     </header>
 
@@ -23,13 +23,14 @@
             @else
                 <img class="mask mask-circle w-52" src="/storage/{{ $user->profile_photo_path }}" />
             @endif
-            <x-input-label for="photo" :value="__('Photo Profile')" class="mt-3" />
-            <input class="file-input file-input-bordered w-full" type="file" name="profile_photo_path" id="photo" class="mt-1 block w-full">
+            <x-input-label for="photo" :value="__('Foto Profil')" class="mt-3" />
+            <input class="file-input file-input-bordered w-full" type="file" name="profile_photo_path" id="photo"
+                class="mt-1 block w-full">
             <x-input-error class="mt-2" :messages="$errors->get('profile_photo_path')" />
         </div>
 
         <div>
-            <x-input-label for="username" :value="__('Username')" />
+            <x-input-label for="username" :value="__('Nama Pengguna')" />
             <x-text-input id="username" name="username" type="text" class="mt-1 block w-full" :value="old('name', $user->username)"
                 required autofocus autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('username')" />
@@ -44,17 +45,17 @@
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
                 <div>
                     <p class="text-sm mt-2 text-gray-800">
-                        {{ __('Your email address is unverified.') }}
+                        {{ __('Email tidak terverifikasi') }}
 
                         <button form="send-verification"
                             class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            {{ __('Click here to re-send the verification email.') }}
+                            {{ __('Klik untuk mengirim verifikasi kembali') }}
                         </button>
                     </p>
 
                     @if (session('status') === 'verification-link-sent')
                         <p class="mt-2 font-medium text-sm text-green-600">
-                            {{ __('A new verification link has been sent to your email address.') }}
+                            {{ __('Tautan verifikasi telah dikirim ke email Anda') }}
                         </p>
                     @endif
                 </div>
@@ -62,32 +63,32 @@
         </div>
 
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Nama')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)"
                 autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div>
-            <x-input-label for="phone" :value="__('Phone')" />
+            <x-input-label for="phone" :value="__('No HP')" />
             <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', $user->phone)"
                 autofocus autocomplete="phone" />
             <x-input-error class="mt-2" :messages="$errors->get('phone')" />
         </div>
 
         <div>
-            <x-input-label for="address" :value="__('Address')" />
+            <x-input-label for="address" :value="__('Alamat')" />
             <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)"
                 autofocus autocomplete="address" />
             <x-input-error class="mt-2" :messages="$errors->get('address')" />
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>{{ __('Simpan') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-green-600">{{ __('Saved.') }}</p>
+                    class="text-sm text-green-600">{{ __('Tersimpan') }}</p>
             @endif
         </div>
     </form>

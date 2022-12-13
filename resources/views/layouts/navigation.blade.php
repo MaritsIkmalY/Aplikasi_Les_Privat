@@ -19,13 +19,13 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('education.index')" :active="request()->routeIs('education.index')">
-                        {{ __('Education') }}
+                        {{ __('Pendidikan') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('certificate.index')" :active="request()->routeIs('certificate.index')">
-                        {{ __('Certificate') }}
+                        {{ __('Sertifikat') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -51,7 +51,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Profil') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -61,7 +61,7 @@
                             <x-dropdown-link :href="route('logout')"
                                 onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Keluar') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>

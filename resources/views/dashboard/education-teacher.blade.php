@@ -1,7 +1,7 @@
 <x-dashboard-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl leading-tight">
-            {{ __('Education') }}
+            {{ __('Pendidikan') }}
         </h2>
     </x-slot>
 
@@ -12,27 +12,27 @@
             <input type="checkbox" id="my-modal-4" class="modal-toggle" />
             <label for="my-modal-4" class="modal cursor-pointer">
                 <label class="modal-box relative" for="">
-                    <div class="text-2xl my-4">Education Form</div>
+                    <div class="text-2xl my-4">Formulir Pendidikan Pengajar</div>
                     <form action={{ route('education.store') }} method="post">
                         @csrf
                         <div class="mb-4">
-                            <x-input-label for="education" :value="__('Education')" />
+                            <x-input-label for="education" :value="__('Pendidikan')" />
                             <x-text-input id="education" name="name" type="text" class="mt-1 block w-full"
                                 :value="old('name')" required autofocus />
                             <x-input-error class="mt-2" :messages="$errors->get('name')" />
                         </div>
                         <div class="mb-4">
-                            <x-input-label for="description" :value="__('Description')" />
+                            <x-input-label for="description" :value="__('Deskripsi')" />
                             <x-text-input id="description" name="description" type="text" class="mt-1 block w-full"
                                 :value="old('description')" required autofocus />
                             <x-input-error class="mt-2" :messages="$errors->get('description')" />
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                 </label>
             </label>
 
-            <label class="btn btn-primary my-4" for="my-modal-4">Add education</label>
+            <label class="btn btn-primary my-4" for="my-modal-4">Tambah Pendidikan</label>
             @if (Session::has('status'))
                 <x-alert status="success">
                     {{ Session::get('status') }}
@@ -46,9 +46,9 @@
                             <th>
                                 #
                             </th>
-                            <th>Education</th>
-                            <th>Description</th>
-                            <th>Action</th>
+                            <th>Pendidikan</th>
+                            <th>Deskripsi</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,11 +69,11 @@
 
                                 <th>
                                     <a href="/profile/education/{{ $d->id }}/edit"
-                                        class="badge bg-yellow-500 border-none cursor-pointer">edit</a>
+                                        class="badge bg-yellow-500 border-none cursor-pointer">Perbarui</a>
                                     <form action="/profile/education/{{ $d->id }}" method="post" class="inline">
                                         @csrf
                                         @method('delete')
-                                        <button class="badge bg-red-500 border-none cursor-pointer">delete</button>
+                                        <button class="badge bg-red-500 border-none cursor-pointer">Hapus</button>
                                     </form>
                                 </th>
                             </tr>

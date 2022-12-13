@@ -1,7 +1,7 @@
 <x-dashboard-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl leading-tight">
-            {{ __('Form Edit Education') }}
+            {{ __('Formulir Perbarui Pendidikan') }}
         </h2>
     </x-slot>
 
@@ -11,13 +11,13 @@
                 @csrf
                 @method('put')
                 <div class="mb-4">
-                    <x-input-label for="education" :value="__('Education')" />
+                    <x-input-label for="education" :value="__('Pendidikan')" />
                     <x-text-input id="education" name="name" type="text" class="mt-1 block w-full" :value="old('name', $education->name)"
                         required autofocus />
                     <x-input-error class="mt-2" :messages="$errors->get('name')" />
                 </div>
                 <div class="mb-4">
-                    <x-input-label for="description" :value="__('Description')" />
+                    <x-input-label for="description" :value="__('Deskripsi')" />
                     <x-text-input id="description" name="description" type="text" class="mt-1 block w-full"
                         :value="old('description', $education->description)" required autofocus />
                     <x-input-error class="mt-2" :messages="$errors->get('description')" />

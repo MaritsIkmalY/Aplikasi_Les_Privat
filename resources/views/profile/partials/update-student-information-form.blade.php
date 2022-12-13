@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Student Profile Information') }}
+            {{ __('Informasi Profil Murid') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Update your student profile information.') }}
+            {{ __('Perbarui informasi Anda') }}
         </p>
     </header>
 
@@ -15,9 +15,9 @@
         @method('patch')
 
         <div>
-            <x-input-label for="grade" :value="__('Grade')" />
+            <x-input-label for="grade" :value="__('Kelas')" />
             <select class="select w-full mt-1" id="grade" name="grade" type="text" required autofocus>
-                <option disabled selected>Select yout grade</option>
+                <option disabled selected>Pilih kelas Anda</option>
                 @foreach ($grade as $g)
                     <option @if ($student->grade_id == $g->id) selected @endif value="{{ $g->id }}">
                         {{ $g->name }}</option>
@@ -35,11 +35,11 @@
 
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>{{ __('Simpan') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-green-600">{{ __('Saved.') }}</p>
+                    class="text-sm text-green-600">{{ __('Tersimpan') }}</p>
             @endif
         </div>
     </form>
