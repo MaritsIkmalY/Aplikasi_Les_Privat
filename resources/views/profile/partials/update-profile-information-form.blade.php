@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium">
-            {{ __('Informasi Profil') }}
+            {{ __('Informasi Akun') }}
         </h2>
 
         <p class="mt-1 text-sm">
-            {{ __('Perbarui profilmu') }}
+            {{ __('Perbarui informasi Anda') }}
         </p>
     </header>
 
