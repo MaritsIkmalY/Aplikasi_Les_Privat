@@ -33,9 +33,9 @@
             </label>
 
             <label class="btn btn-primary my-4" for="my-modal-4">Add education</label>
-            @if (session('status') == 'success')
+            @if (Session::has('status'))
                 <x-alert status="success">
-                    Success Add Data.
+                    {{ Session::get('status') }}
                 </x-alert>
             @endif
             <div class="overflow-x-auto w-full">
@@ -68,8 +68,13 @@
                                 </td>
 
                                 <th>
-                                    <span class="badge bg-yellow-500 border-none cursor-pointer">edit</span>
-                                    <span class="badge bg-red-500 border-none cursor-pointer">delete</span>
+                                    <a href="/profile/education/{{ $d->id }}/edit"
+                                        class="badge bg-yellow-500 border-none cursor-pointer">edit</a>
+                                    <form action="/profile/education/{{ $d->id }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="badge bg-red-500 border-none cursor-pointer">delete</button>
+                                    </form>
                                 </th>
                             </tr>
                         @endforeach

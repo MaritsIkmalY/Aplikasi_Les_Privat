@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Redirect;
 
 class EducationTeacherController extends Controller
 {
-    public function getTeacherId() {
+    public function getTeacherId()
+    {
         $teacher = Teacher::where('user_id', Auth::user()->id)->first('id');
         return $teacher->id;
     }
@@ -47,7 +48,7 @@ class EducationTeacherController extends Controller
 
         Education::create($validate);
 
-        return Redirect::route('education.index')->with('status', 'success');
+        return Redirect::route('education.index')->with('status', 'Success Add Data');
     }
 
     /**
@@ -58,7 +59,7 @@ class EducationTeacherController extends Controller
      */
     public function show($id)
     {
-        //
+        // 
     }
 
     /**
@@ -69,7 +70,10 @@ class EducationTeacherController extends Controller
      */
     public function edit($id)
     {
-        //
+        $education = Education::where('id', $id)->first();
+        return view('dashboard.education-teacher-edit', [
+            'education' => $education,
+        ]);
     }
 
     /**
@@ -81,7 +85,13 @@ class EducationTeacherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'string',
+            'description' => 'string'
+        ]);
+
+        Education::where('id', $id)->update($validate);
+        return Redirect::route('education.index')->with('status', 'Success Edit Data');
     }
 
     /**
@@ -92,6 +102,7 @@ class EducationTeacherController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Education::where('id', $id)->delete();
+        return Redirect::route('education.index')->with('status', 'Success Delete Data');
     }
 }
