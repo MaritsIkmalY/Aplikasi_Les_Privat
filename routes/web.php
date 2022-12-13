@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileStudentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileTeacherController;
+use App\Http\Controllers\SertificateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/profile/student', ProfileStudentController::class)->only('update');
     Route::resource('/profile/teacher', ProfileTeacherController::class)->only('update');
     Route::resource('/profile/education', EducationTeacherController::class);
+    Route::resource('/profile/certificate', SertificateController::class);
 });
 
 require __DIR__ . '/auth.php';
