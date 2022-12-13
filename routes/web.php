@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EducationTeacherController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileStudentController;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('/profile/student', ProfileStudentController::class)->only('update');
     Route::resource('/profile/teacher', ProfileTeacherController::class)->only('update');
-    Route::resource('/profile/student', ProfileStudentController::class)->only('update');
+    Route::resource('/profile/education', EducationTeacherController::class);
 });
 
 require __DIR__ . '/auth.php';

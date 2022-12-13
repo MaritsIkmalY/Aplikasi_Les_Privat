@@ -39,6 +39,13 @@
                 required autofocus autocomplete="schedule" />
             <x-input-error class="mt-2" :messages="$errors->get('schedule')" />
         </div>
+        
+        {{-- <div>
+            <x-input-label for="education" :value="__('Education')" />
+            <x-text-input id="education" name="education" type="text" class="mt-1 block w-full" :value="old('education')"
+                required autofocus autocomplete="education" />
+            <x-input-error class="mt-2" :messages="$errors->get('education')" />
+        </div> --}}
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
