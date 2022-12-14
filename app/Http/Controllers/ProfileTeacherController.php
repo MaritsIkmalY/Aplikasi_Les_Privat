@@ -16,7 +16,7 @@ class ProfileTeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $user_id = Auth::user()->id;
         $validateData = $request->validate([
@@ -28,5 +28,22 @@ class ProfileTeacherController extends Controller
         Teacher::where('user_id', $user_id)->update($validateData);
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    }
+
+    public function activateStatus(Request $request) {
+        $user_id = Auth::user()->id;
+        if($request->status == 'true') {
+            Teacher::where('user_id', $user_id)->update([
+                'status' => true
+            ]);
+        }
+        else if($request->status == 'false') {
+            Teacher::where('user_id', $user_id)->update([
+                'status' => false
+            ]);
+        }
+
+        return Redirect::route('dashboard')->with('status', 'Success updated status.');
+
     }
 }

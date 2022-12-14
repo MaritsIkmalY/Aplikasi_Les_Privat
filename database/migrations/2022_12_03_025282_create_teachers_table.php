@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('category_id')->nullable()->constrained('categories');
             $table->string('fee')->nullable();
             $table->string('schedule')->nullable();
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
