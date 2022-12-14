@@ -17,17 +17,6 @@
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('education.index')" :active="request()->routeIs('education.index')">
-                        {{ __('Pendidikan') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('certificate.index')" :active="request()->routeIs('certificate.index')">
-                        {{ __('Sertifikat') }}
-                    </x-nav-link>
-                </div>
             </div>
 
             <!-- Settings Dropdown -->

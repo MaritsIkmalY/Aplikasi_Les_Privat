@@ -1,7 +1,7 @@
 <x-dashboard-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xlleading-tight">
-            {{ __('Profil') }}
+            {{ __('Edit Biodata dan Akun') }}
         </h2>
     </x-slot>
 
@@ -21,9 +21,7 @@
             @if (Auth::user()->role_id == 1)
                 <div class="p-4 sm:p-8 bg-base-200 shadow sm:rounded-lg">
                     <div class="max-w-xl">
-                        @include('profile.partials.update-student-information-form', [
-                            'grade' => $grade,
-                        ])
+                        @include('profile.partials.update-student-information-form')
                     </div>
                 </div>
             @endif

@@ -11,44 +11,48 @@
                 <!--profil photo-->
                 <div class="flex flex-col items-center gap-4">
                     <h1 class="text-2xl font-semibold">Halaman Profile</h1>
-                    @if (is_null(Auth::user()->profile_photo_path))
-                        <img class="mask mask-circle w-52" src="/storage/default.jpg" />
-                    @else
-                        <img class="mask mask-circle w-52" src="/storage/{{ Auth::user()->profile_photo_path }}" />
-                    @endif
+                    <img class="mask mask-circle w-52" src="/storage/{{ Auth::user()->profile_photo_path }}" />
+
                 </div>
 
                 <!--Biodata-->
                 <div class="flex flex-col gap-4 mt-5">
                     <div class="flex justify-between items-center">
                         <h1 class="text-2xl">Biodata</h1>
-                        <a class="btn btn-success" href="{{ route('profile.edit') }}">Edit Biodata</a>
+                        <a class="badge badge-lg bg-yellow-600 border-none p-4 flex gap-2 items-center"
+                            href="{{ route('profile.edit') }}"><i data-feather="edit"></i>Edit Biodata</a>
                     </div>
+                    <div class="divider"></div>
                     <p>Nama : {{ Auth::user()->name }}</p>
                     <p>Email : {{ Auth::user()->email }}</p>
                     <p>Address : {{ Auth::user()->address }}</p>
                     <p>Phone : {{ Auth::user()->phone }}</p>
                 </div>
 
+                <div class="divider"></div>
                 <!--pendidikan-->
                 @if (Auth::user()->role_id == 2)
                     <div class="flex flex-col gap-4 mt-5">
                         <div class="flex justify-between items-center">
                             <h1 class="text-2xl">Pendidikan</h1>
-                            <a href="{{ route('education.index') }}" class="btn btn-success">Edit Pendidikan</a>
+                            <a class="badge badge-lg bg-yellow-600 border-none p-4 flex gap-2 items-center"
+                            href="{{ route('education.index') }}"><i data-feather="edit"></i>Edit Pendidikan</a>
                         </div>
+                        <div class="divider"></div>
                         @foreach ($teacher->education as $education)
                             <p>{{ $education->name }} - {{ $education->description }}</p>
                         @endforeach
                     </div>
-
+                    <div class="divider"></div>
 
                     <!--sertif-->
                     <div class="flex flex-col gap-5">
                         <div class="flex justify-between items-center">
                             <h1 class="text-2xl">Sertifikat</h1>
-                            <a href="{{ route('certificate.index') }}" class="btn btn-success">Edit Sertifikat</a>
+                            <a class="badge badge-lg bg-yellow-600 border-none p-4 flex gap-2 items-center"
+                            href="{{ route('certificate.index') }}"><i data-feather="edit"></i>Edit Sertifikat</a>
                         </div>
+                        <div class="divider"></div>
                         <div class="flex gap-4 items-stretch">
                             @foreach ($teacher->certificate as $certificate)
                                 <div class="card w-96 bg-base-100 shadow-xl">
@@ -65,6 +69,7 @@
                         </div>
                 @endif
             </div>
+            <div class="divider"></div>
         </div>
     </div>
 </x-dashboard-layout>

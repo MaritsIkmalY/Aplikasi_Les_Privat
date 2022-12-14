@@ -18,11 +18,9 @@
         @csrf
         @method('patch')
         <div>
-            @if (is_null($user->profile_photo_path))
-                <img class="mask mask-circle w-52" src="/storage/default.jpg" />
-            @else
-                <img class="mask mask-circle w-52" src="/storage/{{ $user->profile_photo_path }}" />
-            @endif
+
+            <img class="mask mask-circle w-52" src="/storage/{{ $user->profile_photo_path }}" />
+
             <x-input-label for="photo" :value="__('Foto Profil')" class="mt-3" />
             <input class="file-input file-input-bordered w-full" type="file" name="profile_photo_path" id="photo"
                 class="mt-1 block w-full">
