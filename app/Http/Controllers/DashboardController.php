@@ -16,13 +16,12 @@ class DashboardController extends Controller
                 'teachers' => Teacher::filter(request(['daerah', 'category']))->get(),
                 'category' => Category::get(),
             ]);
-        }
-        else if(Auth::user()->role_id == 2) {
+        } else if (Auth::user()->role_id == 2) {
             return view('dashboard.index');
         }
-
     }
-    public function show($id) {
+    public function show($id)
+    {
         return view('dashboard.detail-teacher');
     }
 }

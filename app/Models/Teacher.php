@@ -21,15 +21,15 @@ class Teacher extends Model
     {
         $query->when(
             $filter['daerah'] ?? false,
-            fn ($query, $daerah) => $query->whereHas('user', function ($query) use($daerah) {
+            fn ($query, $daerah) => $query->whereHas('user', function ($query) use ($daerah) {
                 $query->where('address', $daerah);
             })
         )->when(
             $filter['category'] ?? false,
-            fn ($query, $category) => $query->whereHas('category', function ($query) use($category) {
+            fn ($query, $category) => $query->whereHas('category', function ($query) use ($category) {
                 $query->where('name', $category);
             })
-        )->where('status', true);
+        );
     }
 
     public function category()
