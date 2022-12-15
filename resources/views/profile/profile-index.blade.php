@@ -28,11 +28,15 @@
                     <p>Alamat : {{ Auth::user()->address }}</p>
                     <p>No HP : {{ Auth::user()->phone }}</p>
                     @if (Auth::user()->role_id == 2)
-                        <p>Mengajar : {{ Auth::user()->teacher[0]->category->name }}</p>
-                        <p>Biaya : {{ Auth::user()->teacher[0]->fee }}</p>
-                        <p>Jadwal : {{ Auth::user()->teacher[0]->schedule }}</p>
+                        <p>Mengajar :
+                            {{ Auth::user()->teacher[0]->category ? Auth::user()->teacher[0]->category->name : '-' }}
+                        </p>
+                        <p>Biaya : {{ Auth::user()->teacher[0]->fee ? Auth::user()->teacher[0]->fee : '-' }}</p>
+                        <p>Jadwal : {{ Auth::user()->teacher[0]->schedule ? Auth::user()->teacher[0]->schedule : '-' }}
+                        </p>
                     @else
-                        <p> Kelas : {{ Auth::user()->student[0]->grade->name }}</p>
+                        <p> Kelas : {{ Auth::user()->student[0]->grade ? Auth::user()->student[0]->grade->name : '-' }}
+                        </p>
                     @endif
                 </div>
                 <div class="divider"></div>
