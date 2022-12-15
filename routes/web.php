@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileTeacherController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SertificateController;
 use App\Models\Teacher;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/profile/teacher', ProfileTeacherController::class)->only('update');
     Route::resource('/profile/education', EducationTeacherController::class);
     Route::resource('/profile/certificate', SertificateController::class);
+    Route::resource('/order/teacher', OrderController::class);
 });
 
 require __DIR__ . '/auth.php';

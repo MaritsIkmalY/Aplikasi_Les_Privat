@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained('students');
             $table->foreignId('teacher_id')->constrained('teachers');
-            $table->boolean('status')->nullable();
+            $table->boolean('status_order')->nullable();
+            $table->boolean('status_study')->default(false);
+            $table->text('massage')->nullable();
             $table->timestamps();
         });
     }

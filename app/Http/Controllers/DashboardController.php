@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Student;
+use App\Models\Order;
 
 class DashboardController extends Controller
 {
@@ -22,6 +24,14 @@ class DashboardController extends Controller
     }
     public function show($id)
     {
-        return view('dashboard.detail-teacher');
+        $teacher = Teacher::where('id', $id)->first();
+        $student = Student::where('id', Auth::user()->id)->first();
+        $order = Order::where('student_id', $student->id)
+            ->where('teacher_id', $teacher->id)
+            ->latest()->first();
+        return view('dashboard.detail-teacher', [
+            't' => $teacher,
+            'order' => $order,
+        ]);
     }
 }

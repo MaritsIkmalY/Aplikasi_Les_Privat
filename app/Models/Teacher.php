@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\User;
+use App\Models\Order;
 
 class Teacher extends Model
 {
@@ -50,5 +51,10 @@ class Teacher extends Model
     public function certificate()
     {
         return $this->hasMany(Certificate::class);
+    }
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
     }
 }
