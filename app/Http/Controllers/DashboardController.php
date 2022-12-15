@@ -20,5 +20,9 @@ class DashboardController extends Controller
         else if(Auth::user()->role_id == 2) {
             return view('dashboard.index');
         }
+
+    }
+    public function show($id) {
+        return view('dashboard.detail-teacher');
     }
 }

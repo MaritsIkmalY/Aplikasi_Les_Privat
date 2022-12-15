@@ -10,6 +10,8 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/feather.js"></script>
 
     <!-- Scripts -->
@@ -29,12 +31,19 @@
             </header>
         @endif
 
+        @if( isset($modal))
+        {{ $modal }}
+        @endif
+
+
+
         <!-- Page Content -->
-        <main>
+        <main data-aos="fade-up">
             {{ $slot }}
         </main>
     </div>
     <script>
+        AOS.init()
         feather.replace()
     </script>
 </body>

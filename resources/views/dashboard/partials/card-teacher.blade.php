@@ -9,7 +9,7 @@
             <img src="{{ $t->user->profile_photo_path }}" alt=""
                 class="w-32 h-32 mx-auto rounded-full bg-base-300 aspect-square">
             <div class="space-y-4">
-                <h2 class="font-semibold text-center my-2">{{ $t->user->name }}</h2>
+                <h2 class="font-semibold text-center my-2 h-10">{{ $t->user->name }}</h2>
                 <div class="my-2 space-y-1 flex flex-col gap-2 text-sm">
                     <div class="px-5 flex items-center gap-1">
                         <i data-feather="book-open"></i>{{ $t->category->name }}
@@ -58,7 +58,7 @@
                     </p>
                 </div>
                 <div class="flex justify-center pt-2 space-x-4 align-center">
-                    <button class="btn btn-sm bg-blue-600 border-none hover:bg-blue-500">Detail</button>
+                    <a href="/dashboard/{{ $t->id }}" class="btn btn-sm bg-blue-600 border-none hover:bg-blue-500">Detail</a>
                 </div>
             </div>
         </div>
