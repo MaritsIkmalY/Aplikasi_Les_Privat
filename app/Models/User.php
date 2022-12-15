@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Role;
+use App\Models\Teacher;
+use App\Models\Student;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -46,7 +48,13 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'role_id');
     }
 
-    public function teacher() {
+    public function teacher()
+    {
         return $this->hasMany(Teacher::class);
+    }
+
+    public function student()
+    {
+        return $this->hasMany(Student::class);
     }
 }
