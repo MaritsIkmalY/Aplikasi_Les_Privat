@@ -25,10 +25,16 @@
                     <div class="divider"></div>
                     <p>Nama : {{ Auth::user()->name }}</p>
                     <p>Email : {{ Auth::user()->email }}</p>
-                    <p>Address : {{ Auth::user()->address }}</p>
-                    <p>Phone : {{ Auth::user()->phone }}</p>
+                    <p>Alamat : {{ Auth::user()->address }}</p>
+                    <p>No HP : {{ Auth::user()->phone }}</p>
+                    @if (Auth::user()->role_id == 2)
+                        <p>Mengajar : {{ Auth::user()->teacher[0]->category->name }}</p>
+                        <p>Biaya : {{ Auth::user()->teacher[0]->fee }}</p>
+                        <p>Jadwal : {{ Auth::user()->teacher[0]->schedule }}</p>
+                    @else
+                        <p> Kelas : {{ Auth::user()->student[0]->grade->name }}</p>
+                    @endif
                 </div>
-
                 <div class="divider"></div>
                 <!--pendidikan-->
                 @if (Auth::user()->role_id == 2)
@@ -36,7 +42,7 @@
                         <div class="flex justify-between items-center">
                             <h1 class="text-2xl">Pendidikan</h1>
                             <a class="badge badge-lg bg-yellow-600 border-none p-4 flex gap-2 items-center"
-                            href="{{ route('education.index') }}"><i data-feather="edit"></i>Edit Pendidikan</a>
+                                href="{{ route('education.index') }}"><i data-feather="edit"></i>Edit Pendidikan</a>
                         </div>
                         <div class="divider"></div>
                         @foreach ($teacher->education as $education)
@@ -50,7 +56,7 @@
                         <div class="flex justify-between items-center">
                             <h1 class="text-2xl">Sertifikat</h1>
                             <a class="badge badge-lg bg-yellow-600 border-none p-4 flex gap-2 items-center"
-                            href="{{ route('certificate.index') }}"><i data-feather="edit"></i>Edit Sertifikat</a>
+                                href="{{ route('certificate.index') }}"><i data-feather="edit"></i>Edit Sertifikat</a>
                         </div>
                         <div class="divider"></div>
                         <div class="flex gap-4 items-stretch">
@@ -69,7 +75,7 @@
                         </div>
                 @endif
             </div>
-            <div class="divider"></div>
+            {{-- <div class="divider"></div> --}}
         </div>
     </div>
 </x-dashboard-layout>
