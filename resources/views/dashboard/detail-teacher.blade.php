@@ -6,12 +6,12 @@
     </x-slot>
 
     <div class="py-12">
-        @if (Session::has('status'))
-            <x-alert status="success">
-                {{ Session::get('status') }}
-            </x-alert>
-        @endif
         <div class="max-w-7xl mx-auto sm:px-16 lg:px-16">
+            @if (Session::has('status'))
+                <x-alert status="success">
+                    {{ Session::get('status') }}
+                </x-alert>
+            @endif
             <div class="flex flex-col gap-5">
                 <!--profil photo-->
                 <div class="flex flex-col items-center gap-4">
