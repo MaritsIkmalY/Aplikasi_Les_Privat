@@ -17,6 +17,21 @@ class Teacher extends Model
 
     protected $with = ['education', 'certificate'];
 
+    public function scopeFilter($query, array $filter)
+    {
+        $query->when(
+            $filter['daerah'] ?? false,
+            fn ($query, $daerah) => $query->whereHas('user', function ($query) use($daerah) {
+                $query->where('address', $daerah);
+            })
+        )->when(
+            $filter['category'] ?? false,
+            fn ($query, $category) => $query->whereHas('category', function ($query) use($category) {
+                $query->where('name', $category);
+            })
+        )->where('status', true);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
@@ -27,11 +42,13 @@ class Teacher extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function education() {
+    public function education()
+    {
         return $this->hasMany(Education::class);
     }
 
-    public function certificate() {
+    public function certificate()
+    {
         return $this->hasMany(Certificate::class);
     }
 }

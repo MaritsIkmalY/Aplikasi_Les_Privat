@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationTeacherController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileStudentController;
@@ -24,14 +25,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard.index', [
-        'teachers' => Teacher::where('status', true)->get()
-    ]);
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -41,7 +36,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('/profile/teacher', ProfileTeacherController::class)->only('update');
     Route::resource('/profile/education', EducationTeacherController::class);
     Route::resource('/profile/certificate', SertificateController::class);
-    Route::post('/search', [SearchController::class, 'filter'])->name('search');
 });
 
 require __DIR__ . '/auth.php';
