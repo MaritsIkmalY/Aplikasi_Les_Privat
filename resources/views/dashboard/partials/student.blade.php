@@ -1,18 +1,29 @@
 <div>
-    @if (!is_null(Auth::user()->name) && !is_null(Auth::user()->student[0]->grade_id))
+    @if (!is_null(Auth::user()->name) && !is_null(Auth::user()->student->grade_id))
         <label for="my-modal-1" class="btn btn-primary btn-sm">Filter</label>
         <div class="my-3 flex gap-3 items-center">
             @if (Request::get('daerah'))
-                <div class="badge badge-lg bg-blue-600 border-none ">{{ Request::get('daerah') }}
-                </div>
+                <span class="px-4 py-2 flex items-center text-base rounded-full text-blue-600  bg-blue-200 ">
+                    {{ Request::get('daerah') }}
+                </span>
             @endif
             @if (Request::get('category'))
-                <div class="badge badge-lg bg-blue-600 border-none "> {{ Request::get('category') }}
-                </div>
+                <span class="px-4 py-2 flex items-center text-base rounded-full text-blue-600  bg-blue-200 ">
+                    {{ Request::get('category') }}
+                </span>
             @endif
             @if (Request::get('category') || Request::get('daerah'))
-                <a href="{{ route('dashboard') }}" class="badge badge-lg bg-red-500 border-none p-3"><i data-feather="x"
-                        class="mr-2"></i> Hapus</a>
+                <a href="{{ route('dashboard') }}" class="px-4 py-2  text-base rounded-full text-white  bg-red-500 ">
+                    Hapus filter
+                    <button class="bg-transparent hover">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                            class="ml-4" viewBox="0 0 1792 1792">
+                            <path
+                                d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z">
+                            </path>
+                        </svg>
+                    </button>
+                </a>
             @endif
         </div>
         <div class="flex gap-4">

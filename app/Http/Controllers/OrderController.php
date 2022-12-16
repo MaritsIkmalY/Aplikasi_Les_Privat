@@ -17,7 +17,19 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        if(Auth::user()->role_id == 2) {
+            $order = Order::where('teacher_id', Auth::user()->teacher->id)->get(); 
+            return view('dashboard.order', [
+                'order' => $order
+            ]);
+        }
+
+        if(Auth::user()->role_id == 1) {
+            $order = Order::where('student_id', Auth::user()->student->id)->get(); 
+            return view('dashboard.order', [
+                'order' => $order
+            ]);
+        }
     }
 
     /**
