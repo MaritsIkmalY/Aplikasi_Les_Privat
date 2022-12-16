@@ -23,10 +23,10 @@
 
                 @if ($t->status == true)
                     @if (empty($order))
-                        <form class="" action="{{ route('teacher.store') }}" method="post">
+                        <form action="{{ route('teacher.store') }}" id="form" method="post">
                             @csrf
                             <input type="hidden" name="teacher_id" value="{{ $t->id }}">
-                            <button class="w-full btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Pesan</button>
+                            <button class="w-full btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg" id="button">Pesan</button>
                         </form>
                     @else
                         <button class="btn" disabled="disabled">Pesan</button>

@@ -5,7 +5,7 @@
 @else
     @foreach ($teachers as $t)
         <div
-            class="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl mt-5 sm:px-12 bg-gray-50 text-gray-800">
+            class="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl mt-5 sm:px-12 bg-base-200">
             {{-- Avatar Online --}}
             @if ($t->status == true)
                 <div class="flex justify-center">

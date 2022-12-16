@@ -10,12 +10,12 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/feather.js"></script>
+
+    <!--icons-->
+    <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/script.js'])
 </head>
 
 <body class="font-sans antialiased">
@@ -31,11 +31,10 @@
             </header>
         @endif
 
+        <!--Modal Content-->
         @if( isset($modal))
         {{ $modal }}
         @endif
-
-
 
         <!-- Page Content -->
         <main data-aos="fade-up">
@@ -43,7 +42,6 @@
         </main>
     </div>
     <script>
-        AOS.init()
         feather.replace()
     </script>
 </body>

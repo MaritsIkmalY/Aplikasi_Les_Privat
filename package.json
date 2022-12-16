@@ -2,8 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
-        "scss" : "node-sass — watch style.scss -o style.css"
+        "build": "vite build"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
@@ -18,6 +17,9 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
-        "daisyui": "^2.42.1"
+        "aos": "^2.3.4",
+        "daisyui": "^2.42.1",
+        "jquery": "^3.6.2",
+        "sweetalert2": "^11.6.15"
     }
 }
