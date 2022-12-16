@@ -1,8 +1,10 @@
 <x-dashboard-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl leading-tight">
-            {{ __('Upload Sertifikat') }}
-        </h2>
+        <div class="text-xl breadcrumbs">
+            <ul>
+                <li><a href="{{ route('profile.index') }}">Informasi Profile</a></li>
+                <li><a class="font-bold text-blue-500">Sertifikat</a></li>
+        </div>
     </x-slot>
 
     <x-slot name="modal">
@@ -85,11 +87,11 @@
                                 <th>
                                     <a href="/profile/certificate/{{ $certificate->id }}/edit"
                                         class="badge bg-yellow-500 border-none cursor-pointer">Perbarui</a>
-                                    <form action="/profile/certificate/{{ $certificate->id }}" method="post"
+                                    <form action="/profile/certificate/{{ $certificate->id }}" method="post" id="form"
                                         class="inline">
                                         @csrf
                                         @method('delete')
-                                        <button class="badge bg-red-500 border-none cursor-pointer">Hapus</button>
+                                        <button class="badge bg-red-500 border-none cursor-pointer" id="button-delete-certif">Hapus</button>
                                     </form>
                                 </th>
                             </tr>

@@ -1,8 +1,12 @@
 <x-dashboard-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl leading-tight">
-            {{ __('Formulir Perbarui Pendidikan') }}
-        </h2>
+        <div class="text-xl breadcrumbs">
+            <ul>
+                <li><a href="{{ route('profile.index') }}">Informasi Profile</a></li>
+                <li><a href="{{ route('education.index') }}">Pendidikan</a></li>
+                <li><a class="font-bold text-blue-500">Form Perbarui Pendidikan</a></li>
+            </ul>
+        </div>
     </x-slot>
 
     <div class="py-12">

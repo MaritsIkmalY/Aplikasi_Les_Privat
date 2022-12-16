@@ -1,8 +1,10 @@
 <x-dashboard-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl leading-tight">
-            {{ __('Pendidikan') }}
-        </h2>
+        <div class="text-xl breadcrumbs">
+            <ul>
+                <li><a href="{{ route('profile.index') }}">Informasi Profile</a></li>
+                <li><a class="font-bold text-blue-500">Pendidikan</a></li>
+        </div>
     </x-slot>
 
     <x-slot name="modal">
@@ -12,8 +14,8 @@
                 @csrf
                 <div class="mb-4">
                     <x-input-label for="education" :value="__('Pendidikan')" />
-                    <x-text-input id="education" name="name" type="text" class="mt-1 block w-full" :value="old('name')"
-                        required autofocus />
+                    <x-text-input id="education" name="name" type="text" class="mt-1 block w-full"
+                        :value="old('name')" required autofocus />
                     <x-input-error class="mt-2" :messages="$errors->get('name')" />
                 </div>
                 <div class="mb-4">
@@ -69,10 +71,12 @@
                                 <th>
                                     <a href="/profile/education/{{ $d->id }}/edit"
                                         class="badge bg-yellow-500 border-none cursor-pointer">Perbarui</a>
-                                    <form action="/profile/education/{{ $d->id }}" method="post" class="inline">
+                                    <form action="/profile/education/{{ $d->id }}" method="post" id="form"
+                                        class="inline">
                                         @csrf
                                         @method('delete')
-                                        <button class="badge bg-red-500 border-none cursor-pointer">Hapus</button>
+                                        <button class="badge bg-red-500 border-none cursor-pointer"
+                                            id="button-delete-education">Hapus</button>
                                     </form>
                                 </th>
                             </tr>

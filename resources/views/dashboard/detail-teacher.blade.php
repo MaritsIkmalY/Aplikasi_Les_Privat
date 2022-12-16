@@ -1,8 +1,11 @@
 <x-dashboard-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl leading-tight">
-            {{ __('Detail Guru') }}
-        </h2>
+        <div class="text-xl breadcrumbs">
+            <ul>
+                <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                <li><a class="text-blue-500 font-bold">Detail Guru</a></li>
+            </ul>
+        </div>
     </x-slot>
 
     <div class="py-12">
@@ -26,7 +29,8 @@
                         <form action="{{ route('teacher.store') }}" id="form" method="post">
                             @csrf
                             <input type="hidden" name="teacher_id" value="{{ $t->id }}">
-                            <button class="w-full btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg" id="button">Pesan</button>
+                            <button class="w-full btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+                                id="button">Pesan</button>
                         </form>
                     @else
                         <button class="btn" disabled="disabled">Pesan</button>

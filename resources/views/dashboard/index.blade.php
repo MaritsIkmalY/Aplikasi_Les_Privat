@@ -1,8 +1,10 @@
 <x-dashboard-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
+        <div class="text-xl breadcrumbs">
+            <ul>
+                <li><a>Dashboard</a></li>
+            </ul>
+        </div>
     </x-slot>
 
     <!--Modal -->

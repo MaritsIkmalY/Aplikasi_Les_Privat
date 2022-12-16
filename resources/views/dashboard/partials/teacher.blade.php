@@ -1,8 +1,8 @@
 <div>
-    @if (!is_null(Auth::user()->name) && !is_null(Auth::user()->teacher[0]->category_id))
+    @if (!is_null(Auth::user()->name) && !is_null(Auth::user()->teacher->category_id))
         <div>
             Status :
-            {{ Auth::user()->teacher[0]->status ? 'Active' : 'Off' }}
+            {{ Auth::user()->teacher->status ? 'Active' : 'Off' }}
         </div>
         <!--status ready-->
         <div>

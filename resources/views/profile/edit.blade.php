@@ -1,8 +1,10 @@
 <x-dashboard-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xlleading-tight">
-            {{ __('Edit Biodata dan Akun') }}
-        </h2>
+        <div class="text-xl breadcrumbs">
+            <ul>
+                <li><a href="{{ route('profile.index') }}">Informasi Profile</a></li>
+                <li><a class="font-bold text-blue-500">Edit Biodata</a></li>
+        </div>
     </x-slot>
 
     <div class="py-12">

@@ -1,8 +1,9 @@
 <x-dashboard-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl leading-tight">
-            {{ __('Informasi Profile') }}
-        </h2>
+        <div class="text-xl breadcrumbs">
+            <ul>
+                <li><a>Informasi Profile</a></li>
+        </div>
     </x-slot>
 
     <div class="py-12">
@@ -29,13 +30,13 @@
                     <p>No HP : {{ Auth::user()->phone }}</p>
                     @if (Auth::user()->role_id == 2)
                         <p>Mengajar :
-                            {{ Auth::user()->teacher[0]->category ? Auth::user()->teacher[0]->category->name : '-' }}
+                            {{ Auth::user()->teacher->category ? Auth::user()->teacher->category->name : '-' }}
                         </p>
-                        <p>Biaya : {{ Auth::user()->teacher[0]->fee ? Auth::user()->teacher[0]->fee : '-' }}</p>
-                        <p>Jadwal : {{ Auth::user()->teacher[0]->schedule ? Auth::user()->teacher[0]->schedule : '-' }}
+                        <p>Biaya : {{ Auth::user()->teacher->fee ? Auth::user()->teacher->fee : '-' }}</p>
+                        <p>Jadwal : {{ Auth::user()->teacher->schedule ? Auth::user()->teacher->schedule : '-' }}
                         </p>
                     @else
-                        <p> Kelas : {{ Auth::user()->student[0]->grade ? Auth::user()->student[0]->grade->name : '-' }}
+                        <p> Kelas : {{ Auth::user()->student->grade ? Auth::user()->student->grade->name : '-' }}
                         </p>
                     @endif
                 </div>
