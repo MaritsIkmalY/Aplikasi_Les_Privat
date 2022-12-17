@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/profile/education', EducationTeacherController::class);
     Route::resource('/profile/certificate', SertificateController::class);
     Route::resource('/order', OrderController::class);
-    Route::resource('/order/feedback', FeedbackController::class);
+    Route::resource('/order/feedback', FeedbackController::class)->only('update');
 });
 
 require __DIR__ . '/auth.php';

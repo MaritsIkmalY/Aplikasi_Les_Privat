@@ -39,39 +39,8 @@
                             </x-status>
                         @elseif ($order->status_order == 1)
                             @if ($order->status_study == false)
-                                {{-- Modal --}}
-                                <x-slot name="modal">
-                                    <x-modal2 id="selesai">
-                                        <div class="text-2xl font-bold mb-3">
-                                            Pesan Kesan
-                                        </div>
-                                        <form action="/order/feedback{{ $order->id }}" method="post">
-                                            @csrf
-                                            @method('put')
-                                            {{-- <div class="my-3">
-                                                <x-input-label for="feedback">Pesan, saran, atau kritik kepada pengajar
-                                                </x-input-label>
-                                                <textarea id="feedback" class="textarea textarea-bordered w-full" placeholder="Pesan" name="massage">
-                                            </textarea>
-                                            </div>
-                                            <div>
-                                                <input type="range" min="0" max="100" value="25"
-                                                    class="range" step="25" />
-                                                <div class="w-full flex justify-between text-xs px-2">
-                                                    <span>1</span>
-                                                    <span>2</span>
-                                                    <span>3</span>
-                                                    <span>4</span>
-                                                    <span>5</span>
-                                                </div>
-                                            </div> --}}
-                                            <input type="text" name="id">
-                                            <div class="flex justify-end">
-                                                <button class="btn btn-primary">Kirim</button>
-                                            </div>
-                                        </form>
-                                    </x-modal2>
-                                </x-slot>
+                                {{-- Form feedback --}}
+                                @include('dashboard.partials.form-feedback')
 
                                 <label for="selesai" class="btn btn-primary">Belajar Selesai</label>
                                 <x-status status="accepted">
@@ -93,6 +62,21 @@
                 @elseif($t->status == false)
                     <button class="btn" disabled="disabled">Pesan</button>
                 @endif
+
+                <!--feedback-->
+                <div class="flex gap-4 items-center flex-wrap my-4">
+                    @foreach ($feedback as $f)
+                        <div class="card w-96 bg-base-100 shadow-xl">
+                            <div class="card-body">
+                                <h2 class="card-title">From : {{ $f->student->user->name }}</h2>
+                                <p>{{ $f->message }}</p>
+                                <div class="card-actions justify-end">
+                                    <button class="btn btn-primary">⭐ {{ $f->rate }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
                 <!--Biodata-->
                 <div class="flex flex-col gap-4 mt-5">
                     <div class="flex justify-between items-center">

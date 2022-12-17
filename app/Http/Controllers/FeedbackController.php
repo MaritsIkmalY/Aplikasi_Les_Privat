@@ -2,63 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -68,17 +17,23 @@ class FeedbackController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request);
-    }
+        $order = Order::where('id', $id)->first();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $validated = $request->validate([
+            'message' => 'required', 
+            'rate' => 'required'
+        ]);
+        
+        $validated['teacher_id'] = $order->teacher->id;
+        $validated['student_id'] = $order->student->id;
+
+        Feedback::create($validated);
+
+        Order::where('id', $id)->update([
+            'status_study' => true
+        ]);
+
+        return back()->with('status', 'Feedback berhasil terkirim.');
+
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Feedback;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Student;
@@ -25,13 +26,16 @@ class DashboardController extends Controller
     {
         $teacher = Teacher::where('id', $id)->first();
         $student = Student::where('user_id', Auth::user()->id)->first();
+        $feedback = Feedback::where('teacher_id', $id)->get();
         $order = Order::where('student_id', $student->id)
             ->where('teacher_id', $teacher->id)
             ->where('status_study', false)
             ->first();
+
         return view('dashboard.detail-teacher', [
             't' => $teacher,
             'order' => $order,
+            'feedback' => $feedback,
         ]);
     }
 }
