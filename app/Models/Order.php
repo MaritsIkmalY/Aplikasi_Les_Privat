@@ -17,12 +17,14 @@ class Order extends Model
     {
         $boolen = null;
 
-        if ($filter['status'] == "done") {
-            $boolean = true;
-        } else if ($filter['status'] == "pending") {
-            $boolean = null;
-        } else if ($filter['status'] == "reject") {
-            $boolean = false;
+        if (isset($filter['status'])) {
+            if ($filter['status'] == "done") {
+                $boolean = true;
+            } else if ($filter['status'] == "pending") {
+                $boolean = null;
+            } else if ($filter['status'] == "reject") {
+                $boolean = false;
+            }
         }
 
         $query->when(
