@@ -34,6 +34,9 @@
                         </form>
                     @else
                         <button class="btn" disabled="disabled">Pesan</button>
+                        <x-status status="pending">
+                            <p class="text-center">Menunggu</p>
+                        </x-status>
                     @endif
                 @elseif($t->status == false)
                     <button class="btn" disabled="disabled">Pesan</button>

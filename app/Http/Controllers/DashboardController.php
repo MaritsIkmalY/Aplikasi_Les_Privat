@@ -27,6 +27,8 @@ class DashboardController extends Controller
         $student = Student::where('user_id', Auth::user()->id)->first();
         $order = Order::where('student_id', $student->id)
             ->where('teacher_id', $id)
+            ->where('status_order', null)
+            ->orWhere('status_order', false)
             ->latest()->first();
         return view('dashboard.detail-teacher', [
             't' => $teacher,

@@ -17,17 +17,19 @@ class OrderController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->role_id == 2) {
-            $order = Order::where('teacher_id', Auth::user()->teacher->id)->get(); 
+        if (Auth::user()->role_id == 2) {
+            $order = Order::where('teacher_id', Auth::user()->teacher->id)->get();
             return view('dashboard.order', [
                 'order' => $order
             ]);
         }
 
-        if(Auth::user()->role_id == 1) {
-            $order = Order::where('student_id', Auth::user()->student->id)->get(); 
+        if (Auth::user()->role_id == 1) {
+            $order = Order::where('student_id', Auth::user()->student->id)
+                ->where('status_study', false)
+                ->get();
             return view('dashboard.order', [
-                'order' => $order
+                'order' => $order,
             ]);
         }
     }
@@ -90,7 +92,14 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->status_order ? $massage = "Pesanan diterima" : $massage = "Pesanan ditolak";
+        $validate = $request->validate([
+            'status_order' => 'required',
+            'massage' => 'string',
+        ]);
+
+        Order::where('id', $id)->update($validate);
+        return redirect()->back()->with('status', $massage);
     }
 
     /**
