@@ -43,7 +43,23 @@
             <button class="btn btn-primary w-full">Detail Murid</button>
         </div>
         <div>
-            <label for="my-modal-form" class="btn btn-secondary w-full">Pesanan</label>
+            @if (is_null($o->status_order))
+                <label for="my-modal-form" class="btn btn-secondary w-full">Pesanan</label>
+            @elseif($o->status_order == false)
+                <x-status status="rejected">
+                    <p class="text-center">Pesanan Ditolak</p>
+                </x-status>
+            @elseif($o->status_order == true)
+                @if ($o->status_study == 0)
+                    <x-status status="pending">
+                        <p class="text-center">Sedang berlangsung</p>
+                    </x-status>
+                @else
+                    <x-status status="accepted">
+                        <p class="text-center">Selesai</p>
+                    </x-status>
+                @endif
+            @endif
         </div>
     </div>
 @endforeach

@@ -4,8 +4,7 @@
     </div>
 @else
     @foreach ($teachers as $t)
-        <div
-            class="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl mt-5 sm:px-12 bg-base-200">
+        <div class="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl mt-5 sm:px-12 bg-base-200">
             {{-- Avatar Online --}}
             @if ($t->status == true)
                 <div class="flex justify-center">
@@ -34,7 +33,7 @@
                         <i data-feather="map-pin"></i> {{ $t->user->address }}
                     </div>
                     <div class="px-5 font-bold text-blue-600">
-                        Rp {{ $t->fee ? $t->fee : '-' }}
+                        Rp {{ $t->fee ? $t->fee : '-' }} / jam
                     </div>
                 </div>
                 <div class="flex items-center">

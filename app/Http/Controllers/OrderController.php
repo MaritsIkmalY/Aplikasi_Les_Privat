@@ -18,7 +18,10 @@ class OrderController extends Controller
     public function index()
     {
         if (Auth::user()->role_id == 2) {
-            $order = Order::where('teacher_id', Auth::user()->teacher->id)->get();
+            $order = Order::where('teacher_id', Auth::user()->teacher->id)
+                // ->where('status_study', false)
+                // ->where('status_order', null)
+                ->get();
             return view('dashboard.order', [
                 'order' => $order
             ]);
@@ -26,7 +29,7 @@ class OrderController extends Controller
 
         if (Auth::user()->role_id == 1) {
             $order = Order::where('student_id', Auth::user()->student->id)
-                ->where('status_study', false)
+                // ->where('status_study', false)
                 ->get();
             return view('dashboard.order', [
                 'order' => $order,
@@ -97,6 +100,8 @@ class OrderController extends Controller
             'status_order' => 'required',
             'massage' => 'string',
         ]);
+        if ($request->status_order == false)
+            $validate['status_study'] = true;
 
         Order::where('id', $id)->update($validate);
         return redirect()->back()->with('status', $massage);

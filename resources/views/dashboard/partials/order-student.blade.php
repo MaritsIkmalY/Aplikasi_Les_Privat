@@ -8,7 +8,7 @@
             </div>
             <div>From : {{ $o->teacher->user->name }}</div>
             <div class="text-blue-500">
-                Rp. {{ $o->teacher->fee }}
+                Rp. {{ $o->teacher->fee }} / jam
             </div>
         </div>
         @if (is_null($o->status_order))
@@ -20,9 +20,15 @@
                 <p class="text-center">Pesanan Ditolak</p>
             </x-status>
         @elseif($o->status_order == true)
-            <x-status status="pending">
-                <p class="text-center">Pesanan Diterima</p>
-            </x-status>
+            @if ($o->status_study == false)
+                <x-status status="accepted">
+                    <p class="text-center">Sedang Berlangsung</p>
+                </x-status>
+            @else
+                <x-status status="accepted">
+                    <p class="text-center">Selesai</p>
+                </x-status>
+            @endif
         @endif
     </div>
 @endforeach
