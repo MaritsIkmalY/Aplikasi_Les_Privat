@@ -15,8 +15,6 @@ class Order extends Model
 
     public function scopeFilter($query, array $filter)
     {
-        $boolen = null;
-
         if (isset($filter['status'])) {
             if ($filter['status'] == "done") {
                 $boolean = true;
