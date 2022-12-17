@@ -41,28 +41,31 @@
                             @if ($order->status_study == false)
                                 {{-- Modal --}}
                                 <x-slot name="modal">
-                                    <x-modal2 id="pesanan">
+                                    <x-modal2 id="selesai">
                                         <div class="text-2xl font-bold mb-3">
-                                            Pesanan
+                                            Pesan Kesan
                                         </div>
-                                        <form action="/order/{{ $order->id }}" method="post">
+                                        <form action="/order/feedback{{ $order->id }}" method="post">
                                             @csrf
                                             @method('put')
-                                            <div class="my-3">
-                                                <x-input-label for="pesan">Pesan</x-input-label>
-                                                <textarea id="pesan" class="textarea textarea-bordered w-full" placeholder="Pesan" name="massage">
+                                            {{-- <div class="my-3">
+                                                <x-input-label for="feedback">Pesan, saran, atau kritik kepada pengajar
+                                                </x-input-label>
+                                                <textarea id="feedback" class="textarea textarea-bordered w-full" placeholder="Pesan" name="massage">
                                             </textarea>
                                             </div>
-                                            <div class="my-3 flex gap-2">
-                                                <input type="radio" id="acc" name="status_order" class="radio"
-                                                    value="1" />
-                                                <x-input-label for="acc">Terima</x-input-label>
-                                            </div>
-                                            <div class="my-3 flex gap-2">
-                                                <input type="radio" id="reject" name="status_order" class="radio"
-                                                    value="0" />
-                                                <x-input-label for="reject">Tolak</x-input-label>
-                                            </div>
+                                            <div>
+                                                <input type="range" min="0" max="100" value="25"
+                                                    class="range" step="25" />
+                                                <div class="w-full flex justify-between text-xs px-2">
+                                                    <span>1</span>
+                                                    <span>2</span>
+                                                    <span>3</span>
+                                                    <span>4</span>
+                                                    <span>5</span>
+                                                </div>
+                                            </div> --}}
+                                            <input type="text" name="id">
                                             <div class="flex justify-end">
                                                 <button class="btn btn-primary">Kirim</button>
                                             </div>
@@ -70,10 +73,7 @@
                                     </x-modal2>
                                 </x-slot>
 
-
-
-
-                                <label for="pesanan" class="btn btn-primary">Belajar Selesai</label>
+                                <label for="selesai" class="btn btn-primary">Belajar Selesai</label>
                                 <x-status status="accepted">
                                     <p class="text-center">Sedang Berlangsung</p>
                                 </x-status>
