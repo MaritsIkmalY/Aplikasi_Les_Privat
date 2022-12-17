@@ -8,34 +8,6 @@
         </div>
     </x-slot>
 
-    <x-slot name="modal">
-        <x-modal2 id="pesanan">
-            <div class="text-2xl font-bold mb-3">
-                Pesanan
-            </div>
-            <form action="/order/{{ $order->id }}" method="post">
-                @csrf
-                @method('put')
-                <div class="my-3">
-                    <x-input-label for="pesan">Pesan</x-input-label>
-                    <textarea id="pesan" class="textarea textarea-bordered w-full" placeholder="Pesan" name="massage">
-                </textarea>
-                </div>
-                <div class="my-3 flex gap-2">
-                    <input type="radio" id="acc" name="status_order" class="radio" value="1" />
-                    <x-input-label for="acc">Terima</x-input-label>
-                </div>
-                <div class="my-3 flex gap-2">
-                    <input type="radio" id="reject" name="status_order" class="radio" value="0" />
-                    <x-input-label for="reject">Tolak</x-input-label>
-                </div>
-                <div class="flex justify-end">
-                    <button class="btn btn-primary">Kirim</button>
-                </div>
-            </form>
-        </x-modal2>
-    </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-16 lg:px-16">
             @if (Session::has('status'))
@@ -67,6 +39,40 @@
                             </x-status>
                         @elseif ($order->status_order == 1)
                             @if ($order->status_study == false)
+                                {{-- Modal --}}
+                                <x-slot name="modal">
+                                    <x-modal2 id="pesanan">
+                                        <div class="text-2xl font-bold mb-3">
+                                            Pesanan
+                                        </div>
+                                        <form action="/order/{{ $order->id }}" method="post">
+                                            @csrf
+                                            @method('put')
+                                            <div class="my-3">
+                                                <x-input-label for="pesan">Pesan</x-input-label>
+                                                <textarea id="pesan" class="textarea textarea-bordered w-full" placeholder="Pesan" name="massage">
+                                            </textarea>
+                                            </div>
+                                            <div class="my-3 flex gap-2">
+                                                <input type="radio" id="acc" name="status_order" class="radio"
+                                                    value="1" />
+                                                <x-input-label for="acc">Terima</x-input-label>
+                                            </div>
+                                            <div class="my-3 flex gap-2">
+                                                <input type="radio" id="reject" name="status_order" class="radio"
+                                                    value="0" />
+                                                <x-input-label for="reject">Tolak</x-input-label>
+                                            </div>
+                                            <div class="flex justify-end">
+                                                <button class="btn btn-primary">Kirim</button>
+                                            </div>
+                                        </form>
+                                    </x-modal2>
+                                </x-slot>
+
+
+
+
                                 <label for="pesanan" class="btn btn-primary">Belajar Selesai</label>
                                 <x-status status="accepted">
                                     <p class="text-center">Sedang Berlangsung</p>
