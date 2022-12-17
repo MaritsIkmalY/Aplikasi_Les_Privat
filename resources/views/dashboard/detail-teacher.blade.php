@@ -23,7 +23,6 @@
                 </div>
 
                 {{-- Button Order --}}
-
                 @if ($t->status == true)
                     @if (empty($order))
                         <form action="{{ route('order.store') }}" id="form" method="post">
@@ -64,19 +63,36 @@
                 @endif
 
                 <!--feedback-->
-                <div class="flex gap-4 items-center flex-wrap my-4">
-                    @foreach ($feedback as $f)
-                        <div class="card w-96 bg-base-100 shadow-xl">
-                            <div class="card-body">
-                                <h2 class="card-title">From : {{ $f->student->user->name }}</h2>
-                                <p>{{ $f->message }}</p>
-                                <div class="card-actions justify-end">
-                                    <button class="btn btn-primary">⭐ {{ $f->rate }}</button>
-                                </div>
-                            </div>
+                <div class="my-5">
+                    <h1 class="text-2xl">Feedback Pengajar</h1>
+                    <div class="divider"></div>
+                    @if (count($feedback) == 0)
+                        <div class="font-bold text-blue-600">
+                            Belum ada feedback...
                         </div>
-                    @endforeach
+                    @else
+                        <div class="inline-flex gap-2 flex-wrap w-full">
+                            @foreach ($feedback as $f)
+                                <div class="card w-full bg-base-100 shadow-xl">
+                                    <div class="card-body">
+                                        <div class="font-bold">{{ $f->student->user->name }}</div>
+                                        <p>{{ $f->message }}</p>
+                                        <div class="card-actions justify-end gap-5">
+                                            <div class="flex gap-1 items-center"><i data-feather="clock"></i>{{ $f->created_at->diffForHumans() }}</div>
+                                            <button class="badge badge-primary p-3">⭐ {{ $f->rate }}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                    @endif
+                    <div class="mt-5">
+                        {{ $feedback->links() }}
+                    </div>
+
                 </div>
+
                 <!--Biodata-->
                 <div class="flex flex-col gap-4 mt-5">
                     <div class="flex justify-between items-center">
@@ -125,6 +141,7 @@
                         @endforeach
                     </div>
                 </div>
+
             </div>
         </div>
 </x-dashboard-layout>

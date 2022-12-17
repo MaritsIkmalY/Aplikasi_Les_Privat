@@ -26,7 +26,7 @@ class DashboardController extends Controller
     {
         $teacher = Teacher::where('id', $id)->first();
         $student = Student::where('user_id', Auth::user()->id)->first();
-        $feedback = Feedback::where('teacher_id', $id)->get();
+        $feedback = Feedback::where('teacher_id', $id)->paginate(5);
         $order = Order::where('student_id', $student->id)
             ->where('teacher_id', $teacher->id)
             ->where('status_study', false)

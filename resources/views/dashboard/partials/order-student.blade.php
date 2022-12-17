@@ -6,9 +6,17 @@
                     <img src="/storage/{{ $o->teacher->user->profile_photo_path }}" />
                 </div>
             </div>
-            <div>From : {{ $o->teacher->user->name }}</div>
-            <div class="text-blue-500">
-                Rp. {{ $o->teacher->fee }} / jam
+            <div class="text-xl font-bold mt-2">{{ $o->teacher->user->name }}</div>
+            <div class="flex gap-3 items-center">
+                <div class="badge p-3 bg-blue-200 font-bold text-blue-700 border-none">
+                    {{ $o->teacher->category->name }}
+                </div>
+                <div class="badge text-white bg-rose-500 font-bold border-none p-3">
+                    Rp. {{ $o->teacher->fee }} / jam
+                </div>
+            </div>
+            <div>
+                {{ $o->created_at->format('D , d - M - Y') }}
             </div>
         </div>
         @if (is_null($o->status_order))

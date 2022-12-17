@@ -13,6 +13,25 @@ class Order extends Model
 
     protected $guarded = ['id'];
 
+    public function scopeFilter($query, array $filter)
+    {
+        $boolen = null;
+
+        if ($filter['status'] == "done") {
+            $boolean = true;
+        } else if ($filter['status'] == "pending") {
+            $boolean = null;
+        } else if ($filter['status'] == "reject") {
+            $boolean = false;
+        }
+
+        $query->when(
+            $filter['status'] ?? false,
+            fn ($query) => $query->where('status_order', $boolean)
+        );
+    }
+
+
     public function teacher()
     {
         return $this->belongsTo(Teacher::class, 'teacher_id');

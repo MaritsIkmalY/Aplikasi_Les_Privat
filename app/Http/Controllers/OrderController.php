@@ -18,23 +18,19 @@ class OrderController extends Controller
     public function index()
     {
         if (Auth::user()->role_id == 2) {
-            $order = Order::where('teacher_id', Auth::user()->teacher->id)
-                // ->where('status_study', false)
-                // ->where('status_order', null)
-                ->get();
-            return view('dashboard.order', [
-                'order' => $order
-            ]);
+            $order = Order::filter(request(['status']))->where('teacher_id', Auth::user()->teacher->id)
+                ->latest()->get();
         }
 
         if (Auth::user()->role_id == 1) {
-            $order = Order::where('student_id', Auth::user()->student->id)
-                // ->where('status_study', false)
-                ->get();
-            return view('dashboard.order', [
-                'order' => $order,
-            ]);
+            $order = Order::filter(request(['status']))->where('student_id', Auth::user()->student->id)
+                ->latest()->get();
         }
+
+        
+        return view('dashboard.order', [
+            'order' => $order
+        ]);
     }
 
     /**

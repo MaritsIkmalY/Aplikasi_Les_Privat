@@ -16,6 +16,16 @@
                     </x-alert>
                 @endif
             </div>
+            <div class="my-4">
+                <form action="{{ route('order.index') }}" method="get">
+                    <select name="status" class="select select-bordered w-full max-w-xs" onchange="submit()">
+                        <option disabled selected>Filter by</option>
+                        <option value="pending">Pesanan Menunggu</option>
+                        <option value="done">Pesanan Selesai</option>
+                        <option value="reject">Pesanan ditolak</option>
+                    </select>
+                </form>
+            </div>
             <div class="flex gap-2 flex-wrap justify-center">
                 @if (count($order) == 0)
                     <div class="text-yellow-600">Belum memiliki orderan</div>
@@ -27,4 +37,5 @@
             </div>
         </div>
     </div>
+
 </x-dashboard-layout>
