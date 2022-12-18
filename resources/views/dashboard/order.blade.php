@@ -16,7 +16,7 @@
                     </x-alert>
                 @endif
             </div>
-            <div class="my-4">
+            <div class="my-4 flex gap-3 items-center">
                 <form action="{{ route('order.index') }}" method="get">
                     <select name="status" class="select select-bordered w-full max-w-xs" onchange="submit()">
                         <option disabled selected>Filter by</option>
@@ -25,7 +25,15 @@
                         <option value="reject">Pesanan ditolak</option>
                     </select>
                 </form>
+                @if (Request::get('status'))
+                    <div class="badge bg-blue-200 text-blue-600 font-bold border-none">
+                        {{ Request::get('status') }}
+                    </div>
+                    <a href="{{ route('order.index') }}"
+                        class="btn btn-xs bg-red-600 border-none hover:bg-red-500">Reset</a>
+                @endif
             </div>
+
             <div class="flex gap-2 flex-wrap justify-center">
                 @if (count($order) == 0)
                     <div class="text-yellow-600">Belum memiliki orderan</div>

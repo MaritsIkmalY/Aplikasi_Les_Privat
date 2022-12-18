@@ -15,7 +15,7 @@ class DashboardController extends Controller
     {
         if (Auth::user()->role_id == 1) {
             return view('dashboard.index', [
-                'teachers' => Teacher::filter(request(['daerah', 'category']))->get(),
+                'teachers' => Teacher::filter(request(['daerah', 'category']))->where('status', true)->get(),
                 'category' => Category::get(),
             ]);
         } else if (Auth::user()->role_id == 2) {
