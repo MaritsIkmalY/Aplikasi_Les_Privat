@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Category;
+use Attribute;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Teacher extends Model
 {
@@ -16,7 +18,7 @@ class Teacher extends Model
         'id',
     ];
 
-    protected $with = ['education', 'certificate'];
+    protected $with = ['education', 'certificate', 'feedback'];
 
     public function scopeFilter($query, array $filter)
     {
@@ -56,5 +58,20 @@ class Teacher extends Model
     public function order()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function feedback()
+    {
+        return $this->hasMany(Feedback::class);
+    }
+
+    public static function getRate($t)
+    {
+        $jumlah = 0;
+        foreach ($t->feedback as $f) {
+            $jumlah += $f->rate;
+        }
+
+        return $jumlah / count($t->feedback);
     }
 }

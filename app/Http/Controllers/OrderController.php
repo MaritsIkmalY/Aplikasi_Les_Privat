@@ -27,7 +27,6 @@ class OrderController extends Controller
                 ->latest()->get();
         }
 
-        
         return view('dashboard.order', [
             'order' => $order
         ]);
