@@ -5,8 +5,7 @@
     <title>LesKuy</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/font-awesome.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    @vite(['resources/css/style.css', 'resources/js/landing.js', 'resources/css/font-awesome.css'])
 </head>
 
 <body>
@@ -21,15 +20,15 @@
         <div class="container">
             <div class="header-main">
                 <div class="logo">
-                    <a href="#"><img src="img/logo-leskuy.png" alt="logo" />leskuy</a>
+                    <a href="#"><img src="/img/logo-leskuy.png" alt="logo" />leskuy</a>
                 </div>
                 <button type="button" class="nav-toggler js-nav-toggler">
                     <span></span>
                 </button>
                 <nav class="nav js-nav">
                     <ul>
-                        <li style="--item: 0"><a href="#">Masuk</a></li>
-                        <li style="--item: 1"><a href="#">Daftar</a></li>
+                        <li style="--item: 0"><a href="{{ route('login') }}">Masuk</a></li>
+                        <li style="--item: 1"><a href="{{ route('register') }}">Daftar</a></li>
                     </ul>
                 </nav>
             </div>
@@ -383,8 +382,6 @@
         <i class="fas"></i>
     </button>
     <!-- theme light dark switcher end -->
-
-    <script src="js/script.js"></script>
 </body>
 
 </html>

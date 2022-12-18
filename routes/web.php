@@ -24,7 +24,7 @@ use App\Http\Controllers\FeedbackController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
 Route::middleware('auth')->group(function () {
