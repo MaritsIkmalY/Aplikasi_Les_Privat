@@ -75,10 +75,16 @@
         </div>
 
         <div>
-            <x-input-label for="address" :value="__('Alamat')" />
-            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)"
-                autofocus autocomplete="address" />
-            <x-input-error class="mt-2" :messages="$errors->get('address')" />
+            <x-input-label for="locations :value="__('Alamat')" />
+            <select class="select w-full mt-1"
+                id="location" name="location_id" type="text" required autofocus>
+                <option disabled selected>Pilih Lokasi Anda</option>
+                @foreach ($locations as $location)
+                    <option @if ($user->location_id == $location->id) selected @endif value="{{ $location->id }}">
+                        {{ $location->name }}</option>
+                @endforeach
+                </select>
+                <x-input-error class="mt-2" :messages="$errors->get('location')" />
         </div>
 
         <div class="flex items-center gap-4">

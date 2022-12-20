@@ -21,7 +21,7 @@ class ProfileUpdateRequest extends FormRequest
             'profile_photo_path' => ['mimes:jpg,png,jpeg'],
             'name' => ['string', 'max:255'],
             'phone' => ['string', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10', 'max:50'],
-            'address' => ['string']
+            'location_id' => ['string', 'max:30']
         ];
     }
 }

@@ -26,7 +26,7 @@
                     <div class="divider"></div>
                     <p>Nama : {{ Auth::user()->name }}</p>
                     <p>Email : {{ Auth::user()->email }}</p>
-                    <p>Alamat : {{ Auth::user()->address }}</p>
+                    <p>Alamat : {{ Auth::user()->location ? Auth::user()->location->name : '-' }}</p>
                     <p>No HP : {{ Auth::user()->phone }}</p>
                     @if (Auth::user()->role_id == 2)
                         <p>Mengajar :

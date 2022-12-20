@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Grade;
 use App\Models\Student;
 use App\Models\Teacher;
+use App\Models\Location;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,11 +37,13 @@ class ProfileController extends Controller
      */
     public function edit(Request $request)
     {
+        $locations = Location::all();
         if (Auth::user()->role_id == 1) {
             $grade = Grade::all();
             $student = Student::where('user_id', Auth::user()->id)->first();
             return view('profile.edit', [
                 'user' => $request->user(),
+                'locations' => $locations,
                 'grade' => $grade,
                 'student' => $student,
             ]);
@@ -52,6 +55,7 @@ class ProfileController extends Controller
             $teacher = Teacher::where('user_id', $user_id)->first();
             // dd($teacher);
             return view('profile.edit', [
+                'locations' => $locations,
                 'user' => $request->user(),
                 'categories' => $category,
                 'teacher' => $teacher,

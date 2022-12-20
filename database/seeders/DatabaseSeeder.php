@@ -80,55 +80,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'SMA/Bahasa'
         ]);
 
-        User::create([
-            'username' => 'Student',
-            'role_id' => '1',
-            'email' => 'student@example.com',
-            'password' => Hash::make('password'),
-        ]);
-
-        User::create([
-            'username' => 'Teacher',
-            'role_id' => '2',
-            'email' => 'teacher@example.com',
-            'password' => Hash::make('password'),
-        ]);
-
-        Teacher::create([
-            'id' => '1',
-            'user_id' => '2',
-            'category_id' => '3',
-            'fee' => '500000',
-            'schedule' => null,
-        ]);
-
-        Student::create([
-            'user_id' => '1',
-            'grade_id' => null,
+        Location::create([
+            'name' => 'Batu',
         ]);
 
         Location::create([
-            'name' => 'Sidoarjo',
-        ]);
-
-        Location::create([
-            'name' => 'Gresik',
-        ]);
-
-        Location::create([
-            'name' => 'Mojokerto',
-        ]);
-
-        Location::create([
-            'name' => 'Malang',
-        ]);
-
-        Location::create([
-            'name' => 'Pasuruan',
-        ]);
-
-        Location::create([
-            'name' => 'Jember',
+            'name' => 'Bangkalan',
         ]);
 
         Location::create([
@@ -136,11 +93,116 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Location::create([
-            'name' => 'Sampang',
+            'name' => 'Blitar',
         ]);
 
         Location::create([
             'name' => 'Bojonegoro',
+        ]);
+
+        Location::create([
+            'name' => 'Bondowoso',
+        ]);
+
+        Location::create([
+            'name' => 'Gresik',
+        ]);
+
+        Location::create([
+            'name' => 'Jember',
+        ]);
+
+        Location::create([
+            'name' => 'Jombang',
+        ]);
+
+        Location::create([
+            'name' => 'Kediri',
+        ]);
+
+        Location::create([
+            'name' => 'Lamongan',
+        ]);
+
+        Location::create([
+            'name' => 'Lumajang',
+        ]);
+
+        Location::create([
+            'name' => 'Madiun',
+        ]);
+
+        Location::create([
+            'name' => 'Magetan',
+        ]);
+
+        Location::create([
+            'name' => 'Malang',
+        ]);
+
+        Location::create([
+            'name' => 'Mojokerto',
+        ]);
+
+        Location::create([
+            'name' => 'Nganjuk',
+        ]);
+
+        Location::create([
+            'name' => 'Ngawi',
+        ]);
+
+        Location::create([
+            'name' => 'Pacitan',
+        ]);
+
+        Location::create([
+            'name' => 'Pamekasan',
+        ]);
+
+        Location::create([
+            'name' => 'Pasuruan',
+        ]);
+
+        Location::create([
+            'name' => 'Ponorogo',
+        ]);
+
+        Location::create([
+            'name' => 'Probolinggo',
+        ]);
+
+        Location::create([
+            'name' => 'Sampang',
+        ]);
+
+        Location::create([
+            'name' => 'Sidoarjo',
+        ]);
+
+        Location::create([
+            'name' => 'Situbondo',
+        ]);
+
+        Location::create([
+            'name' => 'Sumenep',
+        ]);
+
+        Location::create([
+            'name' => 'Trenggalek',
+        ]);
+
+        Location::create([
+            'name' => 'Tuban',
+        ]);
+
+        Location::create([
+            'name' => 'Tulungagung',
+        ]);
+
+
+        Location::create([
+            'name' => 'Surabaya',
         ]);
     }
 }
