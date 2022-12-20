@@ -100,7 +100,7 @@
                     </div>
                     <div class="divider"></div>
                     <p>Nama : {{ $t->user->name }}</p>
-                    <p>Alamat : {{ $t->user->address }}</p>
+                    <p>Alamat : {{ $t->user->location->name }}</p>
                     <p>Mengajar : {{ $t->category->name }}</p>
                     <p>Biaya : {{ $t->fee }} / jam</p>
                     <p>Jadwal : {{ $t->schedule }} </p>

@@ -16,8 +16,9 @@
                     <div class="mb-4">
                         <select name="daerah" class="select select-primary w-full max-w-xs">
                             <option disabled selected>Filter Daerah</option>
-                            <option>Surabaya</option>
-                            <option>Sampang</option>
+                            @foreach ($locations as $l)
+                                <option value="{{ $l->name }}">{{ $l->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mb-4">

@@ -25,7 +25,9 @@ class Teacher extends Model
         $query->when(
             $filter['daerah'] ?? false,
             fn ($query, $daerah) => $query->whereHas('user', function ($query) use ($daerah) {
-                $query->where('address', $daerah);
+                $query->whereHas('location', function($query) use($daerah) {
+                    $query->where('name', $daerah);
+                });
             })
         )->when(
             $filter['category'] ?? false,

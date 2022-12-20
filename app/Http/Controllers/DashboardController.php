@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Feedback;
+use App\Models\Location;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Student;
@@ -17,6 +18,7 @@ class DashboardController extends Controller
             return view('dashboard.index', [
                 'teachers' => Teacher::filter(request(['daerah', 'category']))->where('status', true)->get(),
                 'category' => Category::get(),
+                'locations' => Location::all(),
             ]);
         } else if (Auth::user()->role_id == 2) {
             return view('dashboard.index');

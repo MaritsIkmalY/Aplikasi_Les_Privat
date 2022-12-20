@@ -30,7 +30,7 @@
                         <i data-feather="book-open"></i>{{ $t->category->name }}
                     </div>
                     <div class="px-5 flex items-center gap-1">
-                        <i data-feather="map-pin"></i> {{ $t->user->address }}
+                        <i data-feather="map-pin"></i> {{ $t->user->location->name }}
                     </div>
                     <div class="px-5 font-bold text-blue-600">
                         Rp {{ $t->fee ? $t->fee : '-' }} / jam
