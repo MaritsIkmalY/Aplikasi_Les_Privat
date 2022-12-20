@@ -72,6 +72,9 @@ class Teacher extends Model
             $jumlah += $f->rate;
         }
 
-        return $jumlah / count($t->feedback);
+        if ($jumlah == 0)
+            return 0;
+        else
+            return $jumlah / count($t->feedback);
     }
 }
