@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Grade;
+use App\Models\Location;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Teacher;
@@ -102,9 +103,44 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Student::create([
-            'id' => '1',
             'user_id' => '1',
             'grade_id' => null,
+        ]);
+
+        Location::create([
+            'name' => 'Sidoarjo',
+        ]);
+
+        Location::create([
+            'name' => 'Gresik',
+        ]);
+
+        Location::create([
+            'name' => 'Mojokerto',
+        ]);
+
+        Location::create([
+            'name' => 'Malang',
+        ]);
+
+        Location::create([
+            'name' => 'Pasuruan',
+        ]);
+
+        Location::create([
+            'name' => 'Jember',
+        ]);
+
+        Location::create([
+            'name' => 'Banyuwangi',
+        ]);
+
+        Location::create([
+            'name' => 'Sampang',
+        ]);
+
+        Location::create([
+            'name' => 'Bojonegoro',
         ]);
     }
 }
