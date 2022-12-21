@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained('students');
             $table->foreignId('teacher_id')->constrained('teachers');
+            $table->foreignId('order_id')->constrained('orders');
             $table->text('message')->nullable();
             $table->integer('rate');
             $table->timestamps();
