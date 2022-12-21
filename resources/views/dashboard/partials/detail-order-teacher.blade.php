@@ -48,6 +48,10 @@
                     class="text-center rounded-full bg-green-100 text-green-500 p-2 font-bold"><i
                         class="far fa-envelope"></i> {{ $order->student->user->email }}</a>
             @else
+                <div>
+                    <div class="text-sm opacity-90">Feedback</div>
+                    <div class="font-bold">{{ $order->feedback->message }}</div>
+                </div>
                 <x-status status="accepted">
                     <p class="text-center">Selesai</p>
                 </x-status>

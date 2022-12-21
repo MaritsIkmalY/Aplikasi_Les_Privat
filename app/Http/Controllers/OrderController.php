@@ -40,7 +40,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+        //dd($request);
         $student_id = Student::where('user_id', Auth::user()->id)->first();
         Order::create([
             'teacher_id' => $request->teacher_id,

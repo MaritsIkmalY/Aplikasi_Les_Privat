@@ -47,4 +47,9 @@ class Order extends Model
     {
         return $this->belongsTo(Student::class, 'student_id');
     }
+
+    public function feedback()
+    {
+        return $this->hasOne(Feedback::class);
+    }
 }

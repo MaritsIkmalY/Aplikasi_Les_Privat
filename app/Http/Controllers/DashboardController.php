@@ -21,7 +21,9 @@ class DashboardController extends Controller
                 'locations' => Location::all(),
             ]);
         } else if (Auth::user()->role_id == 2) {
-            return view('dashboard.index');
+            return view('dashboard.index', [
+                'order' => Order::where('id', Auth::user()->teacher->id)->latest()->take(3)->get(),
+            ]);
         }
     }
     public function show($id)

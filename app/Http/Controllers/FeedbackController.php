@@ -17,16 +17,19 @@ class FeedbackController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $order = Order::where('id', $id)->first();
 
         $validated = $request->validate([
-            'message' => 'required', 
+            'message' => 'required',
             'rate' => 'required'
         ]);
-        
+
+        $validated['order_id'] = $order->id;
         $validated['teacher_id'] = $order->teacher->id;
         $validated['student_id'] = $order->student->id;
 
+        // return ($validated);
         Feedback::create($validated);
 
         Order::where('id', $id)->update([
@@ -34,6 +37,5 @@ class FeedbackController extends Controller
         ]);
 
         return back()->with('status', 'Feedback berhasil terkirim.');
-
     }
 }
