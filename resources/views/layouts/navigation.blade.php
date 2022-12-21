@@ -18,7 +18,7 @@
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('order.index')" :active="request()->routeIs('order.index')">
-                        {{ __('Order') }}
+                        {{ __('Pesanan') }}
                     </x-nav-link>
                 </div>
 
@@ -87,7 +87,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('order.index')" :active="request()->routeIs('order.index')">
-                {{ __('Order') }}
+                {{ __('Pesanan') }}
             </x-responsive-nav-link>
         </div>
 

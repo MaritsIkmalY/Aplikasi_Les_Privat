@@ -59,19 +59,28 @@
                             <div class="font-bold">{{ $order->student->user->location->name }}</div>
                         </div>
                         <div>
+                            <div class="text-sm opacity-90">Tanggal Pemesanan</div>
+                            <div class="font-bold">{{ $order->created_at->format('d-M-Y') }}</div>
+                        </div>
+                        <div>
                             <div class="text-sm opacity-90">Tagihan / jam</div>
                             <div class="font-bold">Rp . {{ $order->teacher->fee }}</div>
                         </div>
-                        @if (is_null($order->status_order))
+
+                        @if (is_null($order->status_order) && Auth::user()->role_id == 2)
                             <div>
                                 <label for="order-form" class="btn btn-sm btn-primary mr-4">Terima</label>
                                 <label for="order-form-2" class="btn btn-sm btn-secondary">Tolak</label>
                             </div>
-                        @elseif($order->status_order == false)
+                        @elseif(is_null($order->status_order) && Auth::user()->role_id == 1)
+                            <x-status status="pending">
+                                <p class="text-center">Menunggu Konfirmasi</p>
+                            </x-status>
+                        @elseif($order->status_order == '0')
                             <x-status status="rejected">
                                 <p class="text-center">Pesanan Ditolak</p>
                             </x-status>
-                        @elseif($order->status_order == true)
+                        @elseif($order->status_order)
                             @if ($order->status_study == 0)
                                 <x-status status="ongoing">
                                     <p class="text-center">Sedang berlangsung</p>

@@ -11,10 +11,8 @@
                 <div class="badge p-3 bg-blue-200 font-bold text-blue-700 border-none">
                     {{ $o->teacher->category->name }}
                 </div>
-                <div class="badge text-white bg-rose-500 font-bold border-none p-3">
-                    Rp. {{ $o->teacher->fee }} / jam
-                </div>
             </div>
+            <a href="/order/{{ $o->id }}" class="btn btn-sm btn-primary">Detail Pesanan</a>
             <div>
                 {{ $o->created_at->format('D , d - M - Y') }}
             </div>
