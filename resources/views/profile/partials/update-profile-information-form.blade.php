@@ -22,7 +22,7 @@
             <img class="mask mask-circle w-52" src="/storage/{{ $user->profile_photo_path }}" />
 
             <x-input-label for="photo" :value="__('Foto Profil')" class="mt-3" />
-            <input class="file-input file-input-bordered w-full" type="file" name="profile_photo_path" id="photo"
+            <input class="file-input file-input-primary border-none drop-shadow-sm w-full" type="file" name="profile_photo_path" id="photo"
                 class="mt-1 block w-full">
             <x-input-error class="mt-2" :messages="$errors->get('profile_photo_path')" />
         </div>
@@ -46,7 +46,7 @@
                         {{ __('Email tidak terverifikasi') }}
 
                         <button form="send-verification"
-                            class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            class="underline text-sm font:bold text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             {{ __('Klik untuk mengirim verifikasi kembali') }}
                         </button>
                     </p>
@@ -75,9 +75,8 @@
         </div>
 
         <div>
-            <x-input-label for="locations :value="__('Alamat')" />
-            <select class="select w-full mt-1"
-                id="location" name="location_id" type="text" required autofocus>
+            <x-input-label for="locations" :value="__('Lokasi')" />
+            <select class="select w-full mt-1" id="location" name="location_id">
                 <option disabled selected>Pilih Lokasi Anda</option>
                 @foreach ($locations as $location)
                     <option @if ($user->location_id == $location->id) selected @endif value="{{ $location->id }}">

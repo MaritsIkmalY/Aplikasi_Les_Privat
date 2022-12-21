@@ -73,6 +73,3 @@ $(document).on("click", "[id^=button-delete-education]", function (e) {
         }
     });
 });
-
-
-

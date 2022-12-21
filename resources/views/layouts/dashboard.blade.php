@@ -37,7 +37,7 @@
         @endif
 
         <!-- Page Content -->
-        <main data-aos="fade-up">
+        <main data-aos="fade-up" class="p-4 sm:p-0">
             {{ $slot }}
         </main>
     </div>

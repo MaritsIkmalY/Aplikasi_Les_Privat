@@ -20,9 +20,13 @@
                 <form action="{{ route('order.index') }}" method="get">
                     <select name="status" class="select select-bordered w-full max-w-xs" onchange="submit()">
                         <option disabled selected>Filter by</option>
-                        <option value="pending">Pesanan Menunggu</option>
-                        <option value="done">Pesanan Selesai</option>
-                        <option value="reject">Pesanan ditolak</option>
+                        <option value="pending" {{ Request::get('status') == 'pending' ? 'selected' : null }}>Pesanan
+                            Menunggu
+                        </option>
+                        <option value="done" {{ Request::get('status') == 'done' ? 'selected' : null }}>Pesanan
+                            Selesai</option>
+                        <option value="reject"{{ Request::get('status') == 'reject' ? 'selected' : null }}>Pesanan
+                            ditolak</option>
                     </select>
                 </form>
                 @if (Request::get('status'))

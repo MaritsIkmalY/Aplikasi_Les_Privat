@@ -2,7 +2,7 @@
     <div class="bg-base-100 rounded-md p-5 font-semibold flex flex-col gap-2 drop-shadow-md w-96">
         <div class="flex flex-col items-center gap-2 my-2">
             <div>
-                Pesanan {{ $o->id }}
+                Pesanan {{ $loop->iteration }}
             </div>
             <div class="avatar">
                 <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -14,7 +14,7 @@
                 {{ $o->student->grade->name }}
             </div>
             <div>
-                <label for="my-modal-form" class="btn btn-xs btn-primary">Detail Pesanan</label>
+                <a href="/order/{{ $o->id }}" id="order-button" class="btn btn-xs btn-primary">Detail Pesanan</a>
             </div>
             <div class="w-full">
                 @if (is_null($o->status_order))
@@ -27,7 +27,7 @@
                     </x-status>
                 @elseif($o->status_order == true)
                     @if ($o->status_study == 0)
-                        <x-status status="pending">
+                        <x-status status="ongoing">
                             <p class="text-center">Sedang berlangsung</p>
                         </x-status>
                     @else

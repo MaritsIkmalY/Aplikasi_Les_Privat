@@ -27,7 +27,7 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::middleware('auth', 'verified')->group(function () {
+Route::middleware('auth')->group(function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/{teacher}', [DashboardController::class, 'show'])->name('dashboard.show');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
@@ -39,6 +39,9 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::resource('/profile/teacher', ProfileTeacherController::class)->only('update');
     Route::resource('/profile/education', EducationTeacherController::class);
     Route::resource('/profile/certificate', SertificateController::class);
+});
+
+Route::middleware('auth', 'verified')->group(function () {
     Route::resource('/order', OrderController::class);
     Route::resource('/order/feedback', FeedbackController::class)->only('update');
 });

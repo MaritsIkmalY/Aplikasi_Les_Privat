@@ -12,4 +12,8 @@
     <div class="px-4 py-2 bg-green-100 text-green-500 font-bold rounded-md">
         {{ $slot }}
     </div>
+@elseif($status == 'ongoing')
+    <div class="px-4 py-2 bg-blue-100 text-blue-500 font-bold rounded-md">
+        {{ $slot }}
+    </div>
 @endif
