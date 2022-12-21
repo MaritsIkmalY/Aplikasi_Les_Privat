@@ -27,6 +27,8 @@
                             Selesai</option>
                         <option value="reject"{{ Request::get('status') == 'reject' ? 'selected' : null }}>Pesanan
                             ditolak</option>
+                        <option value="ongoing"{{ Request::get('status') == 'ongoing' ? 'selected' : null }}>Pesanan
+                            Berlangsung</option>
                     </select>
                 </form>
                 @if (Request::get('status'))
