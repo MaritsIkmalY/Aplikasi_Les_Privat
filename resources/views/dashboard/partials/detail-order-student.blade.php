@@ -43,7 +43,7 @@
                     <p class="text-center">Sedang berlangsung</p>
                 </x-status>
                 <a href="https://wa.me/{{ $order->teacher->user->phone }}"
-                    class="text-center rounded-full bg-green-100 text-green-500 p-2 font-bold"><i
+                    class="text-center rounded-full bg-green-600 text-white p-2 font-bold"><i
                         class="fab fa-whatsapp"></i> {{ $order->teacher->user->phone }}</a>
                 <a href="mailto:{{ $order->teacher->user->email }}"
                     class="text-center rounded-full bg-green-100 text-green-500 p-2 font-bold"><i
