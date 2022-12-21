@@ -42,7 +42,7 @@
                                 @include('dashboard.partials.form-feedback')
 
                                 <label for="selesai" class="btn btn-primary">Belajar Selesai</label>
-                                <x-status status="accepted">
+                                <x-status status="ongoing">
                                     <p class="text-center">Sedang Berlangsung</p>
                                 </x-status>
                             @else
@@ -50,12 +50,12 @@
                                     <p class="text-center">Selesai</p>
                                 </x-status>
                             @endif
-                            <x-status status="accepted">
-                                <p class="text-center">{{ $t->user->phone }}</p>
-                            </x-status>
-                            <x-status status="accepted">
-                                <p class="text-center">{{ $t->user->email }}</p>
-                            </x-status>
+                            <a href="https://wa.me/{{ $t->user->phone }}"
+                                class="text-center rounded-full bg-green-100 text-green-500 py-2 font-bold"><i
+                                    class="fab fa-whatsapp"></i> {{ $t->user->phone }}</a>
+                            <a href="mailto:{{ $t->user->email }}"
+                                class="text-center rounded-full bg-green-100 text-green-500 py-2 font-bold"><i
+                                    class="far fa-envelope"></i> {{ $t->user->email }}</a>
                         @endif
                     @endif
                 @elseif($t->status == false)
@@ -78,7 +78,9 @@
                                         <div class="font-bold">{{ $f->student->user->name }}</div>
                                         <p>{{ $f->message }}</p>
                                         <div class="card-actions justify-end gap-5">
-                                            <div class="flex gap-1 items-center"><i data-feather="clock"></i>{{ $f->created_at->diffForHumans() }}</div>
+                                            <div class="flex gap-1 items-center"><i
+                                                    data-feather="clock"></i>{{ $f->created_at->diffForHumans() }}
+                                            </div>
                                             <button class="badge badge-primary p-3">⭐ {{ $f->rate }}</button>
                                         </div>
                                     </div>

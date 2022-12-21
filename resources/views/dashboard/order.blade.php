@@ -30,9 +30,6 @@
                     </select>
                 </form>
                 @if (Request::get('status'))
-                    <div class="badge bg-blue-200 text-blue-600 font-bold border-none">
-                        {{ Request::get('status') }}
-                    </div>
                     <a href="{{ route('order.index') }}"
                         class="btn btn-xs bg-red-600 border-none hover:bg-red-500">Reset</a>
                 @endif

@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/script.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/script.js', 'resources/css/font-awesome.css'])
 </head>
 
 <body class="font-sans antialiased">
@@ -32,8 +32,8 @@
         @endif
 
         <!--Modal Content-->
-        @if( isset($modal))
-        {{ $modal }}
+        @if (isset($modal))
+            {{ $modal }}
         @endif
 
         <!-- Page Content -->

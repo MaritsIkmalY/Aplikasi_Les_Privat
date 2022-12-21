@@ -27,7 +27,7 @@
             </x-status>
         @elseif($o->status_order == true)
             @if ($o->status_study == false)
-                <x-status status="accepted">
+                <x-status status="ongoing">
                     <p class="text-center">Sedang Berlangsung</p>
                 </x-status>
             @else
