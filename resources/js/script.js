@@ -73,3 +73,23 @@ $(document).on("click", "[id^=button-delete-education]", function (e) {
         }
     });
 });
+
+if(localStorage.getItem('theme') == null) {
+    localStorage.setItem('theme', 'light');
+    $('#html').attr('data-theme', localStorage.getItem('theme'))
+}
+
+$(document).on("click", "[id^=theme-btn]", function (e) {
+    if(localStorage.getItem('theme') == null) {
+        localStorage.setItem('theme', 'light');
+        $('#html').attr('data-theme', localStorage.getItem('theme'))
+    }
+    else if(localStorage.getItem('theme') == 'dark') {
+        localStorage.setItem('theme', 'light');
+        $('#html').attr('data-theme', localStorage.getItem('theme'))
+    }
+    else if(localStorage.getItem('theme') == 'light') {
+        localStorage.setItem('theme', 'dark');
+        $('#html').attr('data-theme', localStorage.getItem('theme'))
+    }
+});

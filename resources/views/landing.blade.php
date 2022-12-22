@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <!-- preloader start -->
+    {{-- <!-- preloader start -->
     <div class="preloader js-preloader">
         <img src="img/logo-leskuy.png" alt="preloader" />
     </div>
-    <!-- preloader end -->
+    <!-- preloader end --> --}}
 
     <!-- header start -->
     <header class="header js-header">
@@ -41,11 +41,12 @@
         <div class="container">
             <div class="row">
                 <div class="home-text">
-                    <h1>Daftar o LesKuy cok! Ben tambah pinter</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos sed doloribus reprehenderit.
-                        Corrupti laborum debitis quaerat voluptatem! Laboriosam, quis cum omnis deleniti ipsam
-                        accusantium suscipit.</p>
-                    <a href="#" class="btn">contact us</a>
+                    <h1>Daftar Leskuy yuk</h1>
+                    <p>yuk daftar</p>
+                    <div class="flex-row">
+                        <a href="{{ route('login') }}" class="btn">Masuk</a>
+                        <a href="{{ route('register') }}" class="text-primary font-bold">Daftar</a>
+                    </div>
                 </div>
                 <div class="home-img">
                     <div class="fancy-br-box">
@@ -78,10 +79,7 @@
                 </div>
                 <div class="about-text">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor fugit cupiditate iusto
-                        aspernatur, voluptatibus ea obcaecati maxime eveniet nihil debitis dolorum culpa molestiae
-                        voluptates inventore sapiente nesciunt quia
-                        ratione sit?
+                      about
                     </p>
                     <h3>Fasilitas LesKuy</h3>
                     <ul>
@@ -165,7 +163,7 @@
                 <!-- fun fact item start -->
                 <div class="fun-fact-item">
                     <div class="box">
-                        <h2>100</h2>
+                        <h2>1000</h2>
                         <p>pengajar</p>
                     </div>
                 </div>
@@ -198,88 +196,6 @@
         </div>
     </section>
     <!-- fun fact section end -->
-
-    <!-- pricing section start -->
-    <section class="pricing section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2 class="title">pricing</h2>
-                <p class="sub-title">harga terbaik untuk anda</p>
-            </div>
-            <div class="row">
-                <!-- pricing item start -->
-                <div class="pricing-item pricing-1">
-                    <div class="pricing-header">
-                        <h3 data-text="r"><span>r</span></h3>
-                        <div class="price">100k <span>/ Month</span></div>
-                    </div>
-                    <div class="pricing-body">
-                        <ul>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-times-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-times-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-times-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-times-circle"></i>Lorem ipsum dolor sit.</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#" class="btn">pesan sekarang</a>
-                    </div>
-                </div>
-                <!-- pricing item end -->
-                <!-- pricing item start -->
-                <div class="pricing-item pricing-2">
-                    <div class="pricing-header">
-                        <h3 data-text="sr"><span>sr</span></h3>
-                        <div class="price">200k <span>/ Month</span></div>
-                    </div>
-                    <div class="pricing-body">
-                        <ul>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-times-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-times-circle"></i>Lorem ipsum dolor sit.</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#" class="btn">pesan sekarang</a>
-                    </div>
-                </div>
-                <!-- pricing item end -->
-                <!-- pricing item start -->
-                <div class="pricing-item pricing-3">
-                    <div class="pricing-header">
-                        <h3 data-text="ssr"><span>ssr</span></h3>
-                        <div class="price">300k <span>/ Month</span></div>
-                    </div>
-                    <div class="pricing-body">
-                        <ul>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                            <li><i class="far fa-check-circle"></i>Lorem ipsum dolor sit.</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#" class="btn">pesan sekarang</a>
-                    </div>
-                </div>
-                <!-- pricing item end -->
-            </div>
-        </div>
-    </section>
-    <!-- pricing section end -->
 
     <!-- contact section start -->
     <section class="contact section-padding">

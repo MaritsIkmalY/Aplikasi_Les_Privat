@@ -1,6 +1,9 @@
 @foreach ($order as $o)
     <div class="bg-base-100 rounded-md p-5 font-semibold flex flex-col gap-2 drop-shadow-md w-96">
-        <div class="flex flex-col items-center gap-2 my-2">
+        <div class="flex flex-col items-center gap-4 my-2">
+            <div>
+                Pengajar
+            </div>
             <div class="avatar">
                 <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img src="/storage/{{ $o->teacher->user->profile_photo_path }}" />

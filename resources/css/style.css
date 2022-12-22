@@ -865,6 +865,12 @@ textarea.input-control {
   padding: 20px 0;
   text-align: center;
 }
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 /* 22. = responsive */
 @media (max-width: 1199px) {
   .container {

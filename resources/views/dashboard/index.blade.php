@@ -43,7 +43,7 @@
                 </x-alert>
             @endif
 
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="overflow-hidden shadow-sm sm:rounded-lg">
                 @if (Auth::user()->role_id == 2)
                     @include('dashboard.partials.teacher')
                 @endif
