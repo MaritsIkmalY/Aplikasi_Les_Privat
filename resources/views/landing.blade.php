@@ -79,7 +79,7 @@
                 </div>
                 <div class="about-text">
                     <p>
-                      about
+                        about
                     </p>
                     <h3>Fasilitas LesKuy</h3>
                     <ul>
@@ -106,7 +106,7 @@
                 <!-- services item start -->
                 <div class="services-item">
                     <div class="img-box">
-                        <img src="img/LesKuy04.png" alt="" />
+                        <img src="img/guru.png" alt="" />
                     </div>
                     <div class="text">
                         <h3>Turu</h3>
@@ -118,7 +118,7 @@
                 <!-- services item start -->
                 <div class="services-item">
                     <div class="img-box">
-                        <img src="img/LesKuy04.png" alt="" />
+                        <img src="img/guru-2.jpg" alt="" />
                     </div>
                     <div class="text">
                         <h3>Turu</h3>
@@ -126,30 +126,7 @@
                             obcaecati.</p>
                     </div>
                 </div>
-                <!-- services item end -->
-                <!-- services item start -->
-                <div class="services-item">
-                    <div class="img-box">
-                        <img src="img/LesKuy04.png" alt="" />
-                    </div>
-                    <div class="text">
-                        <h3>Turu</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam laboriosam ea voluptate
-                            obcaecati.</p>
-                    </div>
-                </div>
-                <!-- services item end -->
-                <!-- services item start -->
-                <div class="services-item">
-                    <div class="img-box">
-                        <img src="img/LesKuy04.png" alt="" />
-                    </div>
-                    <div class="text">
-                        <h3>Turu</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam laboriosam ea voluptate
-                            obcaecati.</p>
-                    </div>
-                </div>
+            
                 <!-- services item end -->
             </div>
         </div>
@@ -231,10 +208,10 @@
                 </div>
                 <div class="contact-form">
                     <div class="icon-box">
-                        <img src="img/icon/graduate-m.png" alt="icon" />
+                        <img src="img/student-2.png" alt="icon" />
                     </div>
                     <div class="contact-box">
-                        <form action="">
+                        <form action="" method="post">
                             <div class="input-box">
                                 <input type="text" placeholder="Name" class="input-control" />
                             </div>
