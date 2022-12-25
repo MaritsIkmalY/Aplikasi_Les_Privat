@@ -26,7 +26,7 @@
                 </a>
             @endif
         </div>
-        <div class="flex gap-4">
+        <div class="flex gap-4 flex-wrap justify-center">
             @include('dashboard.partials.card-teacher')
         </div>
     @else

@@ -33,7 +33,7 @@
                 <a class="p-4 flex gap-2 items-center text-blue-500 hover:underline" href="/order">Tampilkan
                     lebih banyak</a>
             </div>
-            <div class="my-5 flex justify-center">
+            <div class="my-5 flex justify-center flex-wrap">
                 @include('dashboard.partials.order-teacher')
             </div>
         @endif

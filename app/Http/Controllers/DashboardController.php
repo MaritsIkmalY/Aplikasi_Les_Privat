@@ -22,7 +22,7 @@ class DashboardController extends Controller
             ]);
         } else if (Auth::user()->role_id == 2) {
             return view('dashboard.index', [
-                'order' => Order::where('id', Auth::user()->teacher->id)->latest()->take(3)->get(),
+                'order' => Order::where('teacher_id', Auth::user()->teacher->id)->latest()->take(3)->get(),
             ]);
         }
     }
